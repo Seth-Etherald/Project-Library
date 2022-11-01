@@ -33,8 +33,8 @@
             this.lbAccount = new System.Windows.Forms.Label();
             this.lbPassword = new System.Windows.Forms.Label();
             this.cbShowPW = new System.Windows.Forms.CheckBox();
-            this.btnRegister = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.lbToday = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbAccount
@@ -61,6 +61,7 @@
             this.lbAccount.Size = new System.Drawing.Size(59, 19);
             this.lbAccount.TabIndex = 2;
             this.lbAccount.Text = "Account";
+            this.lbAccount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbPassword
             // 
@@ -71,6 +72,7 @@
             this.lbPassword.Size = new System.Drawing.Size(67, 19);
             this.lbPassword.TabIndex = 3;
             this.lbPassword.Text = "Password";
+            this.lbPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbShowPW
             // 
@@ -81,39 +83,44 @@
             this.cbShowPW.TabIndex = 4;
             this.cbShowPW.Text = "Show Password";
             this.cbShowPW.UseVisualStyleBackColor = true;
-            // 
-            // btnRegister
-            // 
-            this.btnRegister.Location = new System.Drawing.Point(407, 213);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(75, 23);
-            this.btnRegister.TabIndex = 6;
-            this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = true;
+            this.cbShowPW.CheckedChanged += new System.EventHandler(this.CbShowPW_CheckedChanged);
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(215, 213);
+            this.btnLogin.Location = new System.Drawing.Point(298, 208);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 7;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+            // 
+            // lbToday
+            // 
+            this.lbToday.AutoSize = true;
+            this.lbToday.Location = new System.Drawing.Point(12, 261);
+            this.lbToday.Name = "lbToday";
+            this.lbToday.Size = new System.Drawing.Size(0, 15);
+            this.lbToday.TabIndex = 8;
+            this.lbToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 285);
+            this.Controls.Add(this.lbToday);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.cbShowPW);
             this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.lbAccount);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbAccount);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmLogin";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmLogin_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,7 +133,7 @@
         private Label lbAccount;
         private Label lbPassword;
         private CheckBox cbShowPW;
-        private Button btnRegister;
         private Button btnLogin;
+        private Label lbToday;
     }
 }
