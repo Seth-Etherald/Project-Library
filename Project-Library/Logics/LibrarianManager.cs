@@ -2,7 +2,7 @@
 
 namespace Project_Library.Logics
 {
-    internal class LibrarianManager
+    internal static class LibrarianManager
     {
         public static Librarian? GetLibrarian(int librarianId)
         {

@@ -1,13 +1,8 @@
 ﻿using Project_Library.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Project_Library.Logics
 {
-    internal class AccountManager
+    internal static class AccountManager
     {
         public static Account? GetAccount(string account, string password)
         {

@@ -1,6 +1,6 @@
 ﻿namespace Project_Library
 {
-    partial class frmLogin
+    partial class FrmLogin
     {
         /// <summary>
         ///  Required designer variable.

@@ -3,9 +3,9 @@ using Project_Library.Models;
 
 namespace Project_Library
 {
-    public partial class frmLogin : Form
+    public partial class FrmLogin : Form
     {
-        public frmLogin()
+        public FrmLogin()
         {
             InitializeComponent();
             DateTime today = DateTime.Now;
@@ -15,7 +15,7 @@ namespace Project_Library
         private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult confirm = MessageBox.Show("Do you really want to exit?", "Confirmation", MessageBoxButtons.YesNo);
-            e.Cancel = !(confirm == DialogResult.Yes);
+            e.Cancel = confirm != DialogResult.Yes;
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace Project_Library
                 if (librarian != null)
                 {
                     MessageBox.Show("Login Successfully!", "Success", MessageBoxButtons.OK);
-                    frmMain main = new(login, librarian);
+                    FrmMain main = new(login, librarian);
                     main.Show();
                     this.Hide();
                 }
