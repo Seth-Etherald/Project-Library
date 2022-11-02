@@ -41,10 +41,12 @@
             // 
             this.lbGreeting.AutoSize = true;
             this.lbGreeting.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbGreeting.Location = new System.Drawing.Point(12, 9);
+            this.lbGreeting.Location = new System.Drawing.Point(12, 25);
             this.lbGreeting.Name = "lbGreeting";
-            this.lbGreeting.Size = new System.Drawing.Size(0, 28);
+            this.lbGreeting.Size = new System.Drawing.Size(114, 28);
             this.lbGreeting.TabIndex = 0;
+            this.lbGreeting.Text = "Hello";
+            this.lbGreeting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
