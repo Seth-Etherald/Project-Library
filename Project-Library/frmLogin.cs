@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Project_Library.Logics;
 using Project_Library.Models;
 
@@ -29,6 +28,7 @@ namespace Project_Library
                 {
                     FrmMain main = new(login, librarian);
                     main.Show();
+                    this.FormClosing -= FrmLogin_FormClosing!;
                     this.Hide();
                 }
                 else

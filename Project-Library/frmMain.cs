@@ -14,16 +14,12 @@ namespace Project_Library
             if (CurrentAccount.Role == 0) btnAccount.Visible = true;
         }
 
-        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void BtnTitle_Click(object sender, EventArgs e)
         {
             ctrlTitleManager titleManager = new();
             if (!pnMain.Controls.Contains(titleManager))
             {
+                pnMain.Controls.Clear();
                 pnMain.Controls.Add(titleManager);
                 titleManager.Dock = DockStyle.Fill;
                 titleManager.BringToFront();
@@ -32,6 +28,33 @@ namespace Project_Library
             {
                 titleManager.BringToFront();
             }
+        }
+
+        private void BtnReader_Click(object sender, EventArgs e)
+        {
+            ctrlReaderManager readerManager = new();
+            if (!pnMain.Controls.Contains(readerManager))
+            {
+                pnMain.Controls.Clear();
+                pnMain.Controls.Add(readerManager);
+                readerManager.Dock = DockStyle.Fill;
+                readerManager.BringToFront();
+            }
+            else
+            {
+                readerManager.BringToFront();
+            }
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult confirm = MessageBox.Show("Do you really want to exit?", "Confirmation", MessageBoxButtons.YesNo);
+            e.Cancel = confirm != DialogResult.Yes;
+        }
+
+        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
