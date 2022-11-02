@@ -13,12 +13,6 @@ namespace Project_Library
             lbToday.Text = today.ToString("dd/MM/yyyy");
         }
 
-        private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult confirm = MessageBox.Show("Do you really want to exit?", "Confirmation", MessageBoxButtons.YesNo);
-            e.Cancel = confirm != DialogResult.Yes;
-        }
-
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             string account = tbAccount.Text.Trim();
@@ -55,6 +49,12 @@ namespace Project_Library
             tbPassword.UseSystemPasswordChar = !cbShowPW.Checked;
         }
 
+        private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult confirm = MessageBox.Show("Do you really want to exit?", "Confirmation", MessageBoxButtons.YesNo);
+            e.Cancel = confirm != DialogResult.Yes;
+        }
+        
         private void TbAccount_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
