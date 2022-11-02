@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Project_Library.Logics;
 using Project_Library.Models;
 
@@ -32,7 +33,6 @@ namespace Project_Library
                 Librarian? librarian = LibrarianManager.GetLibrarian(login.LibrarianId);
                 if (librarian != null)
                 {
-                    MessageBox.Show("Login Successfully!", "Success", MessageBoxButtons.OK);
                     FrmMain main = new(login, librarian);
                     main.Show();
                     this.Hide();
@@ -47,6 +47,22 @@ namespace Project_Library
         private void CbShowPW_CheckedChanged(object sender, EventArgs e)
         {
             tbPassword.UseSystemPasswordChar = !cbShowPW.Checked;
+        }
+
+        private void TbAccount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                BtnLogin_Click(sender, e);
+            }
+        }
+
+        private void TbPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                BtnLogin_Click(sender, e);
+            }
         }
     }
 }

@@ -43,6 +43,7 @@
             this.tbAccount.Name = "tbAccount";
             this.tbAccount.Size = new System.Drawing.Size(267, 23);
             this.tbAccount.TabIndex = 0;
+            this.tbAccount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbAccount_KeyPress);
             // 
             // tbPassword
             // 
@@ -51,6 +52,7 @@
             this.tbPassword.Size = new System.Drawing.Size(267, 23);
             this.tbPassword.TabIndex = 1;
             this.tbPassword.UseSystemPasswordChar = true;
+            this.tbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbPassword_KeyPress);
             // 
             // lbAccount
             // 
@@ -104,7 +106,7 @@
             this.lbToday.TabIndex = 8;
             this.lbToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // frmLogin
+            // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,7 +119,7 @@
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbAccount);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "frmLogin";
+            this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmLogin_FormClosing);
