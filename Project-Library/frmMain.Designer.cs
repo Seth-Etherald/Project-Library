@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lbGreeting = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnMain = new System.Windows.Forms.Panel();
             this.btnTitle = new System.Windows.Forms.Button();
             this.btnReader = new System.Windows.Forms.Button();
             this.btnLend = new System.Windows.Forms.Button();
@@ -43,18 +43,17 @@
             this.lbGreeting.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbGreeting.Location = new System.Drawing.Point(12, 25);
             this.lbGreeting.Name = "lbGreeting";
-            this.lbGreeting.Size = new System.Drawing.Size(114, 28);
+            this.lbGreeting.Size = new System.Drawing.Size(58, 28);
             this.lbGreeting.TabIndex = 0;
             this.lbGreeting.Text = "Hello";
             this.lbGreeting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel1
+            // pnMain
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Location = new System.Drawing.Point(240, 84);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1029, 549);
-            this.panel1.TabIndex = 1;
+            this.pnMain.Location = new System.Drawing.Point(240, 84);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.Size = new System.Drawing.Size(1029, 549);
+            this.pnMain.TabIndex = 1;
             // 
             // btnTitle
             // 
@@ -67,6 +66,7 @@
             this.btnTitle.TabIndex = 2;
             this.btnTitle.Text = "Manage Title";
             this.btnTitle.UseVisualStyleBackColor = false;
+            this.btnTitle.Click += new System.EventHandler(this.BtnTitle_Click);
             // 
             // btnReader
             // 
@@ -115,6 +115,7 @@
             this.btnAccount.TabIndex = 6;
             this.btnAccount.Text = "Manage Account";
             this.btnAccount.UseVisualStyleBackColor = false;
+            this.btnAccount.Visible = false;
             // 
             // FrmMain
             // 
@@ -127,7 +128,7 @@
             this.Controls.Add(this.btnLend);
             this.Controls.Add(this.btnReader);
             this.Controls.Add(this.btnTitle);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnMain);
             this.Controls.Add(this.lbGreeting);
             this.Name = "FrmMain";
             this.Text = "Library Management";
@@ -140,7 +141,7 @@
         #endregion
 
         private Label lbGreeting;
-        private Panel panel1;
+        private Panel pnMain;
         private Button btnTitle;
         private Button btnReader;
         private Button btnLend;
