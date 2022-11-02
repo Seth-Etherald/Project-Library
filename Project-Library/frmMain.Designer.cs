@@ -79,6 +79,7 @@
             this.btnReader.TabIndex = 3;
             this.btnReader.Text = "Manage Reader";
             this.btnReader.UseVisualStyleBackColor = false;
+            this.btnReader.Click += new System.EventHandler(this.BtnReader_Click);
             // 
             // btnLend
             // 
@@ -133,6 +134,7 @@
             this.Name = "FrmMain";
             this.Text = "Library Management";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

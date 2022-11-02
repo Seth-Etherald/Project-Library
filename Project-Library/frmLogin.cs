@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Project_Library.Logics;
 using Project_Library.Models;
 
@@ -29,6 +28,7 @@ namespace Project_Library
                 {
                     FrmMain main = new(login, librarian);
                     main.Show();
+                    this.FormClosing -= FrmLogin_FormClosing!;
                     this.Hide();
                 }
                 else
@@ -54,7 +54,7 @@ namespace Project_Library
             DialogResult confirm = MessageBox.Show("Do you really want to exit?", "Confirmation", MessageBoxButtons.YesNo);
             e.Cancel = confirm != DialogResult.Yes;
         }
-        
+
         private void TbAccount_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
