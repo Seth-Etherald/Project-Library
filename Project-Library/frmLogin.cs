@@ -42,6 +42,12 @@ namespace Project_Library
                     MessageBox.Show("Error in getting librarian info, please check the database!", "Weird Error", MessageBoxButtons.OK);
                 }
             }
+            else
+            {
+                MessageBox.Show("Wrong account or password!", "Login Failed", MessageBoxButtons.OK);
+                tbPassword.Text = "";
+                tbAccount.Focus();
+            }
         }
 
         private void CbShowPW_CheckedChanged(object sender, EventArgs e)
