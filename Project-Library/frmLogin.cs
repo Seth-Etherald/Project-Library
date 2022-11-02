@@ -12,12 +12,6 @@ namespace Project_Library
             lbToday.Text = today.ToString("dd/MM/yyyy");
         }
 
-        private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult confirm = MessageBox.Show("Do you really want to exit?", "Confirmation", MessageBoxButtons.YesNo);
-            e.Cancel = confirm != DialogResult.Yes;
-        }
-
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             string account = tbAccount.Text.Trim();
@@ -42,11 +36,23 @@ namespace Project_Library
                     MessageBox.Show("Error in getting librarian info, please check the database!", "Weird Error", MessageBoxButtons.OK);
                 }
             }
+            else
+            {
+                MessageBox.Show("Wrong account or password!", "Login Failed", MessageBoxButtons.OK);
+                tbPassword.Text = "";
+                tbAccount.Focus();
+            }
         }
 
         private void CbShowPW_CheckedChanged(object sender, EventArgs e)
         {
             tbPassword.UseSystemPasswordChar = !cbShowPW.Checked;
+        }
+
+        private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult confirm = MessageBox.Show("Do you really want to exit?", "Confirmation", MessageBoxButtons.YesNo);
+            e.Cancel = confirm != DialogResult.Yes;
         }
     }
 }
