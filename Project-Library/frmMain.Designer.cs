@@ -80,7 +80,6 @@
             this.btnReader.Text = "Manage Reader";
             this.btnReader.UseVisualStyleBackColor = false;
             this.btnReader.Click += new System.EventHandler(this.BtnReader_Click);
-
             // 
             // btnLend
             // 
@@ -93,6 +92,7 @@
             this.btnLend.TabIndex = 4;
             this.btnLend.Text = "Manage Lend Book";
             this.btnLend.UseVisualStyleBackColor = false;
+            this.btnLend.Click += new System.EventHandler(this.BtnLend_Click);
             // 
             // btnReturn
             // 
@@ -136,7 +136,6 @@
             this.Text = "Library Management";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
-
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -46,6 +46,22 @@ namespace Project_Library
             }
         }
 
+        private void BtnLend_Click(object sender, EventArgs e)
+        {
+            ctrlLendBook lendManager = new();
+            if (!pnMain.Controls.Contains(lendManager))
+            {
+                pnMain.Controls.Clear();
+                pnMain.Controls.Add(lendManager);
+                lendManager.Dock = DockStyle.Fill;
+                lendManager.BringToFront();
+            }
+            else
+            {
+                lendManager.BringToFront();
+            }
+        }
+
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult confirm = MessageBox.Show("Do you really want to exit?", "Confirmation", MessageBoxButtons.YesNo);
