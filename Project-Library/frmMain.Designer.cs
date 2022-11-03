@@ -105,6 +105,7 @@
             this.btnReturn.TabIndex = 5;
             this.btnReturn.Text = "Manage Return Book";
             this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.BtnReturn_Click);
             // 
             // btnAccount
             // 
