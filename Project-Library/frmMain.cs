@@ -62,6 +62,22 @@ namespace Project_Library
             }
         }
 
+        private void BtnReturn_Click(object sender, EventArgs e)
+        {
+            ctrlReturnBook returnManager = new();
+            if (!pnMain.Controls.Contains(returnManager))
+            {
+                pnMain.Controls.Clear();
+                pnMain.Controls.Add(returnManager);
+                returnManager.Dock = DockStyle.Fill;
+                returnManager.BringToFront();
+            }
+            else
+            {
+                returnManager.BringToFront();
+            }
+        }
+
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult confirm = MessageBox.Show("Do you really want to exit?", "Confirmation", MessageBoxButtons.YesNo);
