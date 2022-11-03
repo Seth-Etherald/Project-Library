@@ -119,6 +119,7 @@
             this.btnAccount.Text = "Manage Account";
             this.btnAccount.UseVisualStyleBackColor = false;
             this.btnAccount.Visible = false;
+            this.btnAccount.Click += new System.EventHandler(this.BtnAccount_Click);
             // 
             // FrmMain
             // 
