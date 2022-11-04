@@ -144,6 +144,8 @@
             this.btnAddTitle.TabIndex = 6;
             this.btnAddTitle.Text = "Add Title";
             this.btnAddTitle.UseVisualStyleBackColor = true;
+            this.btnAddTitle.Click += new System.EventHandler(this.BtnAddTitle_Click);
+
             // 
             // btnEditTitle
             // 
