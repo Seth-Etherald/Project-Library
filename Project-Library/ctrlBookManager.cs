@@ -41,9 +41,6 @@ namespace Project_Library
 
             _dgvBookData = (from bookInfo in booksInfo
                             join
-                                 book in books on
-                                 bookInfo.TitleId equals book.TitleId
-                            join
                                  publisher in publishers on
                                  bookInfo.PublisherId equals publisher.PublisherId
                             join
@@ -52,23 +49,28 @@ namespace Project_Library
                             join
                                  author in authors on
                                  authorBook.AuthorId equals author.AuthorId
-                            let bookCondition = book.Condition switch
+                            join
+                                 book in books on
+                                 bookInfo.TitleId equals book.TitleId
+                                 into groupedData
+                            from data in groupedData.DefaultIfEmpty()
+                            let condition = data?.Condition switch
                             {
                                 1 => "Good",
                                 2 => "Damaged",
                                 3 => "Lost",
-                                _ => "Wrong value, check the database."
+                                _ => "No Data"
                             }
                             select new BookManageModel()
                             {
-                                BookId = book.BookId,
                                 TitleId = bookInfo.TitleId,
+                                BookId = data?.BookId == null ? "No book in stock" : data.BookId.ToString(),
                                 Title = bookInfo.Title,
                                 Author = author.AuthorName,
                                 Publisher = publisher.PublisherName,
                                 InStock = bookInfo.InStock,
                                 NumberOfPages = bookInfo.NumberOfPages,
-                                Condition = bookCondition
+                                Condition = condition,
                             }).ToList();
 
             dgvBook.DataSource = _dgvBookData;
