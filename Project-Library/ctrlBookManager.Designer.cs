@@ -1,6 +1,6 @@
 ﻿namespace Project_Library
 {
-    partial class ctrlTitleManager
+    partial class CtrlBookManager
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvTitle = new System.Windows.Forms.DataGridView();
+            this.dgvBook = new System.Windows.Forms.DataGridView();
             this.lbSearch = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.gbRadioButtons = new System.Windows.Forms.GroupBox();
@@ -39,21 +39,24 @@
             this.btnAddTitle = new System.Windows.Forms.Button();
             this.btnEditTitle = new System.Windows.Forms.Button();
             this.btnAddBook = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTitle)).BeginInit();
+            this.btnDeleteTitle = new System.Windows.Forms.Button();
+            this.btnEditBook = new System.Windows.Forms.Button();
+            this.btnDeleteBook = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.gbRadioButtons.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvTitle
+            // dgvBook
             // 
-            this.dgvTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvBook.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvTitle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTitle.Location = new System.Drawing.Point(214, 3);
-            this.dgvTitle.Name = "dgvTitle";
-            this.dgvTitle.RowTemplate.Height = 25;
-            this.dgvTitle.Size = new System.Drawing.Size(842, 483);
-            this.dgvTitle.TabIndex = 0;
+            this.dgvBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBook.Location = new System.Drawing.Point(214, 3);
+            this.dgvBook.Name = "dgvBook";
+            this.dgvBook.RowTemplate.Height = 25;
+            this.dgvBook.Size = new System.Drawing.Size(842, 483);
+            this.dgvBook.TabIndex = 0;
             // 
             // lbSearch
             // 
@@ -117,6 +120,7 @@
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Start Searching";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // btnRefresh
             // 
@@ -128,14 +132,15 @@
             this.btnRefresh.TabIndex = 5;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
             // btnAddTitle
             // 
             this.btnAddTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddTitle.Location = new System.Drawing.Point(3, 328);
+            this.btnAddTitle.Location = new System.Drawing.Point(3, 244);
             this.btnAddTitle.Name = "btnAddTitle";
-            this.btnAddTitle.Size = new System.Drawing.Size(205, 50);
+            this.btnAddTitle.Size = new System.Drawing.Size(205, 33);
             this.btnAddTitle.TabIndex = 6;
             this.btnAddTitle.Text = "Add Title";
             this.btnAddTitle.UseVisualStyleBackColor = true;
@@ -144,9 +149,9 @@
             // 
             this.btnEditTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditTitle.Location = new System.Drawing.Point(3, 382);
+            this.btnEditTitle.Location = new System.Drawing.Point(3, 283);
             this.btnEditTitle.Name = "btnEditTitle";
-            this.btnEditTitle.Size = new System.Drawing.Size(205, 50);
+            this.btnEditTitle.Size = new System.Drawing.Size(205, 33);
             this.btnEditTitle.TabIndex = 7;
             this.btnEditTitle.Text = "Edit Title";
             this.btnEditTitle.UseVisualStyleBackColor = true;
@@ -155,19 +160,55 @@
             // 
             this.btnAddBook.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddBook.Location = new System.Drawing.Point(3, 436);
+            this.btnAddBook.Location = new System.Drawing.Point(3, 361);
             this.btnAddBook.Name = "btnAddBook";
-            this.btnAddBook.Size = new System.Drawing.Size(205, 50);
+            this.btnAddBook.Size = new System.Drawing.Size(205, 33);
             this.btnAddBook.TabIndex = 8;
             this.btnAddBook.Text = "Add Book";
             this.btnAddBook.UseVisualStyleBackColor = true;
             this.btnAddBook.Click += new System.EventHandler(this.BtnAddBook_Click);
             // 
-            // ctrlTitleManager
+            // btnDeleteTitle
+            // 
+            this.btnDeleteTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteTitle.Location = new System.Drawing.Point(3, 322);
+            this.btnDeleteTitle.Name = "btnDeleteTitle";
+            this.btnDeleteTitle.Size = new System.Drawing.Size(205, 33);
+            this.btnDeleteTitle.TabIndex = 9;
+            this.btnDeleteTitle.Text = "Delete Title";
+            this.btnDeleteTitle.UseVisualStyleBackColor = true;
+            // 
+            // btnEditBook
+            // 
+            this.btnEditBook.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditBook.Location = new System.Drawing.Point(3, 400);
+            this.btnEditBook.Name = "btnEditBook";
+            this.btnEditBook.Size = new System.Drawing.Size(205, 33);
+            this.btnEditBook.TabIndex = 10;
+            this.btnEditBook.Text = "Edit Book";
+            this.btnEditBook.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteBook
+            // 
+            this.btnDeleteBook.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteBook.Location = new System.Drawing.Point(3, 439);
+            this.btnDeleteBook.Name = "btnDeleteBook";
+            this.btnDeleteBook.Size = new System.Drawing.Size(205, 33);
+            this.btnDeleteBook.TabIndex = 11;
+            this.btnDeleteBook.Text = "Delete Book";
+            this.btnDeleteBook.UseVisualStyleBackColor = true;
+            // 
+            // CtrlBookManager
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.Controls.Add(this.btnDeleteBook);
+            this.Controls.Add(this.btnEditBook);
+            this.Controls.Add(this.btnDeleteTitle);
             this.Controls.Add(this.btnAddBook);
             this.Controls.Add(this.btnEditTitle);
             this.Controls.Add(this.btnAddTitle);
@@ -176,10 +217,10 @@
             this.Controls.Add(this.gbRadioButtons);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.lbSearch);
-            this.Controls.Add(this.dgvTitle);
-            this.Name = "ctrlTitleManager";
+            this.Controls.Add(this.dgvBook);
+            this.Name = "CtrlBookManager";
             this.Size = new System.Drawing.Size(1059, 489);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTitle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
             this.gbRadioButtons.ResumeLayout(false);
             this.gbRadioButtons.PerformLayout();
             this.ResumeLayout(false);
@@ -189,7 +230,7 @@
 
         #endregion
 
-        private DataGridView dgvTitle;
+        private DataGridView dgvBook;
         private Label lbSearch;
         private TextBox tbSearch;
         private GroupBox gbRadioButtons;
@@ -200,5 +241,8 @@
         private Button btnAddTitle;
         private Button btnEditTitle;
         private Button btnAddBook;
+        private Button btnDeleteTitle;
+        private Button btnEditBook;
+        private Button btnDeleteBook;
     }
 }

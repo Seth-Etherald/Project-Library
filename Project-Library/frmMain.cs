@@ -14,19 +14,19 @@ namespace Project_Library
             if (CurrentAccount.Role == 0) btnAccount.Visible = true;
         }
 
-        private void BtnTitle_Click(object sender, EventArgs e)
+        private void BtnBook_Click(object sender, EventArgs e)
         {
-            ctrlTitleManager titleManager = new();
-            if (!pnMain.Controls.Contains(titleManager))
+            CtrlBookManager bookManager = new();
+            if (!pnMain.Controls.Contains(bookManager))
             {
                 pnMain.Controls.Clear();
-                pnMain.Controls.Add(titleManager);
-                titleManager.Dock = DockStyle.Fill;
-                titleManager.BringToFront();
+                pnMain.Controls.Add(bookManager);
+                bookManager.Dock = DockStyle.Fill;
+                bookManager.BringToFront();
             }
             else
             {
-                titleManager.BringToFront();
+                bookManager.BringToFront();
             }
         }
 

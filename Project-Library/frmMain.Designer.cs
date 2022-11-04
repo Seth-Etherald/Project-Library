@@ -30,7 +30,7 @@
         {
             this.lbGreeting = new System.Windows.Forms.Label();
             this.pnMain = new System.Windows.Forms.Panel();
-            this.btnTitle = new System.Windows.Forms.Button();
+            this.btnBook = new System.Windows.Forms.Button();
             this.btnReader = new System.Windows.Forms.Button();
             this.btnLend = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
@@ -55,18 +55,18 @@
             this.pnMain.Size = new System.Drawing.Size(1029, 549);
             this.pnMain.TabIndex = 1;
             // 
-            // btnTitle
+            // btnBook
             // 
-            this.btnTitle.BackColor = System.Drawing.Color.Transparent;
-            this.btnTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTitle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTitle.Location = new System.Drawing.Point(12, 84);
-            this.btnTitle.Name = "btnTitle";
-            this.btnTitle.Size = new System.Drawing.Size(222, 77);
-            this.btnTitle.TabIndex = 2;
-            this.btnTitle.Text = "Manage Title";
-            this.btnTitle.UseVisualStyleBackColor = false;
-            this.btnTitle.Click += new System.EventHandler(this.BtnTitle_Click);
+            this.btnBook.BackColor = System.Drawing.Color.Transparent;
+            this.btnBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBook.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnBook.Location = new System.Drawing.Point(12, 84);
+            this.btnBook.Name = "btnBook";
+            this.btnBook.Size = new System.Drawing.Size(222, 77);
+            this.btnBook.TabIndex = 2;
+            this.btnBook.Text = "Manage Book";
+            this.btnBook.UseVisualStyleBackColor = false;
+            this.btnBook.Click += new System.EventHandler(this.BtnBook_Click);
             // 
             // btnReader
             // 
@@ -131,7 +131,7 @@
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnLend);
             this.Controls.Add(this.btnReader);
-            this.Controls.Add(this.btnTitle);
+            this.Controls.Add(this.btnBook);
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.lbGreeting);
             this.Name = "FrmMain";
@@ -147,7 +147,7 @@
 
         private Label lbGreeting;
         private Panel pnMain;
-        private Button btnTitle;
+        private Button btnBook;
         private Button btnReader;
         private Button btnLend;
         private Button btnReturn;
