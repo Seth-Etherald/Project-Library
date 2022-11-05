@@ -157,7 +157,7 @@ namespace Project_Library
                 Close();
             }
         }
-        
+
         public bool CheckTitleAndPages(string title, int pages)
         {
             if (string.IsNullOrEmpty(title))
