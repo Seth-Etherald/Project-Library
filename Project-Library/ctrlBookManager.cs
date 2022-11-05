@@ -40,6 +40,13 @@ namespace Project_Library
             LoadDGVData();
         }
 
+        private void BtnDeleteTitle_Click(object sender, EventArgs e)
+        {
+            int titleId = Convert.ToInt32(lbHiddenTitleId.Text);
+            DeleteTitle(titleId);
+            LoadDGVData();
+        }
+
         private void BtnAddBook_Click(object sender, EventArgs e)
         {
         }
