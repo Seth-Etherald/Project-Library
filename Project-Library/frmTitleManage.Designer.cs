@@ -108,6 +108,7 @@
             0,
             0,
             0});
+
             this.nudPage.Name = "nudPage";
             this.nudPage.Size = new System.Drawing.Size(215, 23);
             this.nudPage.TabIndex = 8;

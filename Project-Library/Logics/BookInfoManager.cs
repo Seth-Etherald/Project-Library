@@ -28,7 +28,7 @@ namespace Project_Library.Logics
             context.BookInfos.Add(data);
             context.SaveChanges();
         }
-
+        
         public static void UpdateBookInfo(BookInfo data)
         {
             using var context = new LibraryManagementContext();

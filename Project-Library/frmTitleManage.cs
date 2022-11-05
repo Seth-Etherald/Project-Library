@@ -56,6 +56,7 @@ namespace Project_Library
             switch (btnSubmit.Text)
             {
                 case "Add":
+
                     bool validCheckAdd = CheckTitleAndPages(title, numberOfPages);
                     if (!validCheckAdd) return;
                     AddTitleToBookInfo(title, numberOfPages);
@@ -156,7 +157,7 @@ namespace Project_Library
                 Close();
             }
         }
-
+        
         public bool CheckTitleAndPages(string title, int pages)
         {
             if (string.IsNullOrEmpty(title))

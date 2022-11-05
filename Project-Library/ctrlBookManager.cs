@@ -141,5 +141,11 @@ namespace Project_Library
             }
             dgvBook.DataSource = _dgvBookData;
         }
+
+        private void BtnAddTitle_Click(object sender, EventArgs e)
+        {
+            FrmTitleManage titleManager = new();
+            titleManager.Show();
+        }
     }
 }
