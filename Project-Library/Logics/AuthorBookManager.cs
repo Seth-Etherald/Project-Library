@@ -10,6 +10,12 @@ namespace Project_Library.Logics
             return context.AuthorBooks.ToList();
         }
 
+        public static List<AuthorBook> GetAuthorBooks(int titleId)
+        {
+            using var context = new LibraryManagementContext();
+            return context.AuthorBooks.Where(x => x.TitleId == titleId).ToList();
+        }
+
         public static AuthorBook? GetAuthorBookByTitleId(int titleId)
         {
             using var context = new LibraryManagementContext();
@@ -36,6 +42,13 @@ namespace Project_Library.Logics
                 context.AuthorBooks.Add(tempAuthorBook);
                 context.SaveChanges();
             }
+        }
+
+        public static void DeleteAuthorBook(List<AuthorBook> data)
+        {
+            using var context = new LibraryManagementContext();
+            context.AuthorBooks.RemoveRange(data);
+            context.SaveChanges();
         }
     }
 }
