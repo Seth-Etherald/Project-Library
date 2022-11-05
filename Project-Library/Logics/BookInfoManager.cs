@@ -10,6 +10,12 @@ namespace Project_Library.Logics
             return context.BookInfos.ToList();
         }
 
+        public static List<BookInfo> GetBookInfos(int titleId)
+        {
+            using var context = new LibraryManagementContext();
+            return context.BookInfos.Where(x => x.TitleId == titleId).ToList();
+        }
+
         public static BookInfo? GetBookInfo(int titleId)
         {
             using var context = new LibraryManagementContext();
@@ -28,11 +34,18 @@ namespace Project_Library.Logics
             context.BookInfos.Add(data);
             context.SaveChanges();
         }
-        
+
         public static void UpdateBookInfo(BookInfo data)
         {
             using var context = new LibraryManagementContext();
             context.BookInfos.Update(data);
+            context.SaveChanges();
+        }
+
+        public static void DeleteBookInfo(List<BookInfo> data)
+        {
+            using var context = new LibraryManagementContext();
+            context.BookInfos.RemoveRange(data);
             context.SaveChanges();
         }
     }

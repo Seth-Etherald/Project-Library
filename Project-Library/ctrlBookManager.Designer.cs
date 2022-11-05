@@ -149,7 +149,6 @@
             this.btnAddTitle.Text = "Add Title";
             this.btnAddTitle.UseVisualStyleBackColor = true;
             this.btnAddTitle.Click += new System.EventHandler(this.BtnAddTitle_Click);
-
             // 
             // btnEditTitle
             // 
@@ -185,6 +184,7 @@
             this.btnDeleteTitle.TabIndex = 9;
             this.btnDeleteTitle.Text = "Delete Title";
             this.btnDeleteTitle.UseVisualStyleBackColor = true;
+            this.btnDeleteTitle.Click += new System.EventHandler(this.BtnDeleteTitle_Click);
             // 
             // btnEditBook
             // 

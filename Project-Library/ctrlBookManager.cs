@@ -34,6 +34,13 @@ namespace Project_Library
             titleManager.FormClosing += BtnRefresh_Click!;
         }
 
+        private void BtnDeleteTitle_Click(object sender, EventArgs e)
+        {
+            int titleId = Convert.ToInt32(lbHiddenTitleId.Text);
+            DeleteTitle(titleId);
+            LoadDGVData();
+        }
+
         private void BtnAddBook_Click(object sender, EventArgs e)
         {
         }
@@ -142,6 +149,26 @@ namespace Project_Library
                     break;
             }
             dgvBook.DataSource = _dgvBookData;
+        }
+
+        public static void DeleteTitle(int titleId)
+        {
+            var result = MessageBox.Show("Do you really want to delete this title and all books with this title?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                List<AuthorBook> authorBooksToDelete = AuthorBookManager.GetAuthorBooks(titleId);
+                List<Book> booksToDelete = BookManager.GetBooks(titleId);
+                List<BookInfo> bookInfosToDelete = BookInfoManager.GetBookInfos(titleId);
+
+                if (booksToDelete.Count > 0)
+                {
+                    BookManager.DeleteBooks(booksToDelete);
+                }
+                AuthorBookManager.DeleteAuthorBook(authorBooksToDelete);
+                BookInfoManager.DeleteBookInfo(bookInfosToDelete);
+
+                MessageBox.Show("Deleted Successfully!");
+            }
         }
     }
 }
