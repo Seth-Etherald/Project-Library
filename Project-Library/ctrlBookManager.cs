@@ -32,142 +32,142 @@ namespace Project_Library
             FrmTitleManage titleManager = new(Convert.ToInt32(lbHiddenTitleId.Text));
             titleManager.Show();
             titleManager.FormClosing += BtnRefresh_Click!;
+        }
 
-            private void BtnDeleteTitle_Click(object sender, EventArgs e)
-            {
-                int titleId = Convert.ToInt32(lbHiddenTitleId.Text);
-                DeleteTitle(titleId);
-                LoadDGVData();
-            }
+        private void BtnDeleteTitle_Click(object sender, EventArgs e)
+        {
+            int titleId = Convert.ToInt32(lbHiddenTitleId.Text);
+            DeleteTitle(titleId);
+            LoadDGVData();
+        }
 
-            private void BtnAddBook_Click(object sender, EventArgs e)
-            {
-            }
+        private void BtnAddBook_Click(object sender, EventArgs e)
+        {
+        }
 
-            private void BtnRefresh_Click(object sender, EventArgs e)
-            {
-                tbSearch.Text = "";
-                SetInitialRDAndButton();
-                LoadDGVData();
-            }
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            tbSearch.Text = "";
+            SetInitialRDAndButton();
+            LoadDGVData();
+        }
 
-            private void DgvBook_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvBook_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            List<BookManageModel> booksManage = (List<BookManageModel>)dgvBook.DataSource;
+            if (e.RowIndex >= 0)
             {
-                List<BookManageModel> booksManage = (List<BookManageModel>)dgvBook.DataSource;
-                if (e.RowIndex >= 0)
+                btnEditTitle.Enabled = true;
+                btnDeleteTitle.Enabled = true;
+
+                lbHiddenBookId.Text = booksManage[e.RowIndex].BookId;
+                lbHiddenTitleId.Text = booksManage[e.RowIndex].TitleId.ToString();
+
+                if (!(string.IsNullOrEmpty(lbHiddenBookId.Text) || lbHiddenBookId.Text!.Equals("No book in stock", StringComparison.OrdinalIgnoreCase)))
                 {
-                    btnEditTitle.Enabled = true;
-                    btnDeleteTitle.Enabled = true;
-
-                    lbHiddenBookId.Text = booksManage[e.RowIndex].BookId;
-                    lbHiddenTitleId.Text = booksManage[e.RowIndex].TitleId.ToString();
-
-                    if (!(string.IsNullOrEmpty(lbHiddenBookId.Text) || lbHiddenBookId.Text!.Equals("No book in stock", StringComparison.OrdinalIgnoreCase)))
-                    {
-                        btnEditBook.Enabled = true;
-                        btnDeleteBook.Enabled = true;
-                    }
-                    else
-                    {
-                        btnEditBook.Enabled = false;
-                        btnDeleteBook.Enabled = false;
-                    }
+                    btnEditBook.Enabled = true;
+                    btnDeleteBook.Enabled = true;
                 }
                 else
                 {
-                    SetInitialRDAndButton();
+                    btnEditBook.Enabled = false;
+                    btnDeleteBook.Enabled = false;
                 }
             }
-
-            public void LoadDGVData()
+            else
             {
-                List<Book> books = BookManager.GetBooks();
-                List<BookInfo> booksInfo = BookInfoManager.GetBookInfos();
-                List<Publisher> publishers = PublisherManager.GetPublishers();
-                List<Author> authors = AuthorManager.GetAuthors();
-                List<AuthorBook> authorBooks = AuthorBookManager.GetAuthorBooks();
-
-                _dgvBookData = (from bookInfo in booksInfo
-                                join
-                                     publisher in publishers on
-                                     bookInfo.PublisherId equals publisher.PublisherId
-                                join
-                                     authorBook in authorBooks on
-                                     bookInfo.TitleId equals authorBook.TitleId
-                                join
-                                     author in authors on
-                                     authorBook.AuthorId equals author.AuthorId
-                                join
-                                     book in books on
-                                     bookInfo.TitleId equals book.TitleId
-                                     into groupedData
-                                from data in groupedData.DefaultIfEmpty()
-                                let condition = data?.Condition switch
-                                {
-                                    1 => "Good",
-                                    2 => "Damaged",
-                                    3 => "Lost",
-                                    _ => "No Data"
-                                }
-                                select new BookManageModel()
-                                {
-                                    TitleId = bookInfo.TitleId,
-                                    BookId = data?.BookId == null ? "No book in stock" : data.BookId.ToString(),
-                                    Title = bookInfo.Title,
-                                    Author = author.AuthorName,
-                                    Publisher = publisher.PublisherName,
-                                    InStock = bookInfo.InStock,
-                                    NumberOfPages = bookInfo.NumberOfPages,
-                                    Condition = condition,
-                                }).ToList();
-
-                dgvBook.DataSource = _dgvBookData;
+                SetInitialRDAndButton();
             }
+        }
 
-            public void SetInitialRDAndButton()
+        public void LoadDGVData()
+        {
+            List<Book> books = BookManager.GetBooks();
+            List<BookInfo> booksInfo = BookInfoManager.GetBookInfos();
+            List<Publisher> publishers = PublisherManager.GetPublishers();
+            List<Author> authors = AuthorManager.GetAuthors();
+            List<AuthorBook> authorBooks = AuthorBookManager.GetAuthorBooks();
+
+            _dgvBookData = (from bookInfo in booksInfo
+                            join
+                                 publisher in publishers on
+                                 bookInfo.PublisherId equals publisher.PublisherId
+                            join
+                                 authorBook in authorBooks on
+                                 bookInfo.TitleId equals authorBook.TitleId
+                            join
+                                 author in authors on
+                                 authorBook.AuthorId equals author.AuthorId
+                            join
+                                 book in books on
+                                 bookInfo.TitleId equals book.TitleId
+                                 into groupedData
+                            from data in groupedData.DefaultIfEmpty()
+                            let condition = data?.Condition switch
+                            {
+                                1 => "Good",
+                                2 => "Damaged",
+                                3 => "Lost",
+                                _ => "No Data"
+                            }
+                            select new BookManageModel()
+                            {
+                                TitleId = bookInfo.TitleId,
+                                BookId = data?.BookId == null ? "No book in stock" : data.BookId.ToString(),
+                                Title = bookInfo.Title,
+                                Author = author.AuthorName,
+                                Publisher = publisher.PublisherName,
+                                InStock = bookInfo.InStock,
+                                NumberOfPages = bookInfo.NumberOfPages,
+                                Condition = condition,
+                            }).ToList();
+
+            dgvBook.DataSource = _dgvBookData;
+        }
+
+        public void SetInitialRDAndButton()
+        {
+            rdTitle.Checked = true;
+            btnEditBook.Enabled = false;
+            btnEditTitle.Enabled = false;
+            btnDeleteBook.Enabled = false;
+            btnDeleteTitle.Enabled = false;
+        }
+
+        public void DoFilter()
+        {
+            string searchString = tbSearch.Text;
+            string checkedButton = gbRadioButtons.Controls.OfType<RadioButton>().FirstOrDefault(x => x.Checked == true)!.Text;
+            switch (checkedButton)
             {
-                rdTitle.Checked = true;
-                btnEditBook.Enabled = false;
-                btnEditTitle.Enabled = false;
-                btnDeleteBook.Enabled = false;
-                btnDeleteTitle.Enabled = false;
+                case "Search By Title":
+                    _dgvBookData = _dgvBookData.Where(x => x.Title!.Contains(searchString, StringComparison.InvariantCultureIgnoreCase)).ToList();
+                    break;
+
+                case "Search By Author":
+                    _dgvBookData = _dgvBookData.Where(x => x.Author!.Contains(searchString, StringComparison.InvariantCultureIgnoreCase)).ToList();
+                    break;
             }
+            dgvBook.DataSource = _dgvBookData;
+        }
 
-            public void DoFilter()
+        public static void DeleteTitle(int titleId)
+        {
+            var result = MessageBox.Show("Do you really want to delete this title and all books with this title?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
-                string searchString = tbSearch.Text;
-                string checkedButton = gbRadioButtons.Controls.OfType<RadioButton>().FirstOrDefault(x => x.Checked == true)!.Text;
-                switch (checkedButton)
+                List<AuthorBook> authorBooksToDelete = AuthorBookManager.GetAuthorBooks(titleId);
+                List<Book> booksToDelete = BookManager.GetBooks(titleId);
+                List<BookInfo> bookInfosToDelete = BookInfoManager.GetBookInfos(titleId);
+
+                if (booksToDelete.Count > 0)
                 {
-                    case "Search By Title":
-                        _dgvBookData = _dgvBookData.Where(x => x.Title!.Contains(searchString, StringComparison.InvariantCultureIgnoreCase)).ToList();
-                        break;
-
-                    case "Search By Author":
-                        _dgvBookData = _dgvBookData.Where(x => x.Author!.Contains(searchString, StringComparison.InvariantCultureIgnoreCase)).ToList();
-                        break;
+                    BookManager.DeleteBooks(booksToDelete);
                 }
-                dgvBook.DataSource = _dgvBookData;
-            }
+                AuthorBookManager.DeleteAuthorBook(authorBooksToDelete);
+                BookInfoManager.DeleteBookInfo(bookInfosToDelete);
 
-            public static void DeleteTitle(int titleId)
-            {
-                var result = MessageBox.Show("Do you really want to delete this title and all books with this title?", "Warning", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    List<AuthorBook> authorBooksToDelete = AuthorBookManager.GetAuthorBooks(titleId);
-                    List<Book> booksToDelete = BookManager.GetBooks(titleId);
-                    List<BookInfo> bookInfosToDelete = BookInfoManager.GetBookInfos(titleId);
-
-                    if (booksToDelete.Count > 0)
-                    {
-                        BookManager.DeleteBooks(booksToDelete);
-                    }
-                    AuthorBookManager.DeleteAuthorBook(authorBooksToDelete);
-                    BookInfoManager.DeleteBookInfo(bookInfosToDelete);
-
-                    MessageBox.Show("Deleted Successfully!");
-                }
+                MessageBox.Show("Deleted Successfully!");
             }
         }
     }
