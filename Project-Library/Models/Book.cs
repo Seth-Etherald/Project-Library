@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Project_Library.Models
+﻿namespace Project_Library.Models
 {
     public partial class Book
     {

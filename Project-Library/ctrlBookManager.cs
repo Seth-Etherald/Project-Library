@@ -24,12 +24,14 @@ namespace Project_Library
         {
             FrmTitleManage titleManager = new();
             titleManager.Show();
+            titleManager.FormClosing += BtnRefresh_Click!;
         }
 
         private void BtnEditTitle_Click(object sender, EventArgs e)
         {
             FrmTitleManage titleManager = new(Convert.ToInt32(lbHiddenTitleId.Text));
             titleManager.Show();
+            titleManager.FormClosing += BtnRefresh_Click!;
         }
 
         private void BtnAddBook_Click(object sender, EventArgs e)
@@ -140,12 +142,6 @@ namespace Project_Library
                     break;
             }
             dgvBook.DataSource = _dgvBookData;
-        }
-
-        private void BtnAddTitle_Click(object sender, EventArgs e)
-        {
-            FrmTitleManage titleManager = new();
-            titleManager.Show();
         }
     }
 }
