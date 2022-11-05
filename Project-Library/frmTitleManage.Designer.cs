@@ -103,6 +103,11 @@
             // nudPage
             // 
             this.nudPage.Location = new System.Drawing.Point(152, 132);
+            this.nudPage.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.nudPage.Name = "nudPage";
             this.nudPage.Size = new System.Drawing.Size(215, 23);
             this.nudPage.TabIndex = 8;

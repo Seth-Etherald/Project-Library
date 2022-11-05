@@ -15,28 +15,38 @@ namespace Project_Library
             btnSubmit.Text = "Add";
         }
 
-        public FrmTitleManage(BookInfo bookInfo)
+        public FrmTitleManage(int titleId)
         {
             InitializeComponent();
+            LoadComboBox();
             Text = "Edit Title";
-            AuthorBook? authorBook = AuthorBookManager.GetAuthorBookByTitleId(bookInfo.TitleId);
-            tbTitleId.Text = bookInfo.TitleId.ToString();
+            BookInfo? currentBookTitle = BookInfoManager.GetBookInfo(titleId);
+            AuthorBook? authorBook = AuthorBookManager.GetAuthorBookByTitleId(titleId);
+            tbTitleId.Text = titleId.ToString();
 
-            tbTitle.Text = bookInfo.Title;
-            nudPage.Value = bookInfo.NumberOfPages;
-
-            if (authorBook != null)
+            if (currentBookTitle == null)
             {
-                cbAuthor.SelectedValue = authorBook.AuthorId;
+                MessageBox.Show("Can't get title info!", "Error", MessageBoxButtons.OK);
+                Close();
             }
             else
             {
-                cbAuthor.SelectedIndex = 0;
+                tbTitle.Text = currentBookTitle.Title;
+                nudPage.Value = currentBookTitle.NumberOfPages;
+
+                if (authorBook != null)
+                {
+                    cbAuthor.SelectedValue = authorBook.AuthorId;
+                }
+                else
+                {
+                    cbAuthor.SelectedIndex = 0;
+                }
+
+                cbPublisher.SelectedValue = currentBookTitle.PublisherId;
+
+                btnSubmit.Text = "Edit";
             }
-
-            cbPublisher.SelectedValue = bookInfo.PublisherId;
-
-            btnSubmit.Text = "Edit";
         }
 
         private void BtnSubmit_Click(object sender, EventArgs e)
@@ -46,13 +56,16 @@ namespace Project_Library
             switch (btnSubmit.Text)
             {
                 case "Add":
-                    bool validCheck = CheckTitleAndPages(title, numberOfPages);
-                    if (!validCheck) return;
+                    bool validCheckAdd = CheckTitleAndPages(title, numberOfPages);
+                    if (!validCheckAdd) return;
                     AddTitleToBookInfo(title, numberOfPages);
                     AddToAuthorBook(title);
                     break;
 
                 case "Edit":
+                    bool validCheckEdit = CheckTitleAndPages(title, numberOfPages);
+                    if (!validCheckEdit) return;
+                    EditTitleBookInfo(tbTitleId.Text);
                     break;
             }
         }
@@ -116,6 +129,29 @@ namespace Project_Library
                     AuthorRole = "Chủ biên"
                 });
                 MessageBox.Show("Added Successfully!", "Success", MessageBoxButtons.OK);
+                FormClosing -= FrmTitleManage_FormClosing!;
+                Close();
+            }
+        }
+
+        public void EditTitleBookInfo(string titleId)
+        {
+            BookInfo? tempBookInfo = BookInfoManager.GetBookInfo(Convert.ToInt32(titleId));
+            if (tempBookInfo == null)
+            {
+                MessageBox.Show("Edit title failed! Please check the database!", "Warning", MessageBoxButtons.OK);
+                return;
+            }
+            else
+            {
+                tempBookInfo.Title = tbTitle.Text;
+                tempBookInfo.NumberOfPages = (int)nudPage.Value;
+                tempBookInfo.PublisherId = (int)cbPublisher.SelectedValue;
+                BookInfoManager.UpdateBookInfo(tempBookInfo);
+
+                AuthorBookManager.UpdateAuthorBook(titleId, (int)cbAuthor.SelectedValue);
+
+                MessageBox.Show("Updated Successfully!", "Success", MessageBoxButtons.OK);
                 FormClosing -= FrmTitleManage_FormClosing!;
                 Close();
             }

@@ -22,5 +22,20 @@ namespace Project_Library.Logics
             context.AuthorBooks.Add(data);
             context.SaveChanges();
         }
+
+        public static void UpdateAuthorBook(string titleId, int authorId)
+        {
+            using var context = new LibraryManagementContext();
+            AuthorBook? tempAuthorBook = GetAuthorBookByTitleId(Convert.ToInt32(titleId));
+            if (tempAuthorBook != null)
+            {
+                context.AuthorBooks.Remove(tempAuthorBook);
+                context.SaveChanges();
+
+                tempAuthorBook.AuthorId = authorId;
+                context.AuthorBooks.Add(tempAuthorBook);
+                context.SaveChanges();
+            }
+        }
     }
 }

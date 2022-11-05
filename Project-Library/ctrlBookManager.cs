@@ -10,12 +10,8 @@ namespace Project_Library
         public CtrlBookManager()
         {
             InitializeComponent();
-            rdTitle.Checked = true;
+            SetInitialRDAndButton();
             LoadDGVData();
-        }
-
-        private void BtnAddBook_Click(object sender, EventArgs e)
-        {
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
@@ -24,11 +20,55 @@ namespace Project_Library
             DoFilter();
         }
 
+        private void BtnAddTitle_Click(object sender, EventArgs e)
+        {
+            FrmTitleManage titleManager = new();
+            titleManager.Show();
+        }
+
+        private void BtnEditTitle_Click(object sender, EventArgs e)
+        {
+            FrmTitleManage titleManager = new(Convert.ToInt32(lbHiddenTitleId.Text));
+            titleManager.Show();
+        }
+
+        private void BtnAddBook_Click(object sender, EventArgs e)
+        {
+        }
+
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
-            rdTitle.Checked = true;
             tbSearch.Text = "";
+            SetInitialRDAndButton();
             LoadDGVData();
+        }
+
+        private void DgvBook_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            List<BookManageModel> booksManage = (List<BookManageModel>)dgvBook.DataSource;
+            if (e.RowIndex >= 0)
+            {
+                btnEditTitle.Enabled = true;
+                btnDeleteTitle.Enabled = true;
+
+                lbHiddenBookId.Text = booksManage[e.RowIndex].BookId;
+                lbHiddenTitleId.Text = booksManage[e.RowIndex].TitleId.ToString();
+
+                if (!(string.IsNullOrEmpty(lbHiddenBookId.Text) || lbHiddenBookId.Text!.Equals("No book in stock", StringComparison.OrdinalIgnoreCase)))
+                {
+                    btnEditBook.Enabled = true;
+                    btnDeleteBook.Enabled = true;
+                }
+                else
+                {
+                    btnEditBook.Enabled = false;
+                    btnDeleteBook.Enabled = false;
+                }
+            }
+            else
+            {
+                SetInitialRDAndButton();
+            }
         }
 
         public void LoadDGVData()
@@ -76,6 +116,15 @@ namespace Project_Library
             dgvBook.DataSource = _dgvBookData;
         }
 
+        public void SetInitialRDAndButton()
+        {
+            rdTitle.Checked = true;
+            btnEditBook.Enabled = false;
+            btnEditTitle.Enabled = false;
+            btnDeleteBook.Enabled = false;
+            btnDeleteTitle.Enabled = false;
+        }
+
         public void DoFilter()
         {
             string searchString = tbSearch.Text;
@@ -91,12 +140,6 @@ namespace Project_Library
                     break;
             }
             dgvBook.DataSource = _dgvBookData;
-        }
-
-        private void BtnAddTitle_Click(object sender, EventArgs e)
-        {
-            FrmTitleManage titleManager = new();
-            titleManager.Show();
         }
     }
 }

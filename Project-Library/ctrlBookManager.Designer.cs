@@ -42,6 +42,8 @@
             this.btnDeleteTitle = new System.Windows.Forms.Button();
             this.btnEditBook = new System.Windows.Forms.Button();
             this.btnDeleteBook = new System.Windows.Forms.Button();
+            this.lbHiddenBookId = new System.Windows.Forms.Label();
+            this.lbHiddenTitleId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.gbRadioButtons.SuspendLayout();
             this.SuspendLayout();
@@ -54,9 +56,11 @@
             this.dgvBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBook.Location = new System.Drawing.Point(214, 3);
             this.dgvBook.Name = "dgvBook";
+            this.dgvBook.ReadOnly = true;
             this.dgvBook.RowTemplate.Height = 25;
             this.dgvBook.Size = new System.Drawing.Size(842, 483);
             this.dgvBook.TabIndex = 0;
+            this.dgvBook.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBook_CellClick);
             // 
             // lbSearch
             // 
@@ -145,7 +149,6 @@
             this.btnAddTitle.Text = "Add Title";
             this.btnAddTitle.UseVisualStyleBackColor = true;
             this.btnAddTitle.Click += new System.EventHandler(this.BtnAddTitle_Click);
-
             // 
             // btnEditTitle
             // 
@@ -157,6 +160,7 @@
             this.btnEditTitle.TabIndex = 7;
             this.btnEditTitle.Text = "Edit Title";
             this.btnEditTitle.UseVisualStyleBackColor = true;
+            this.btnEditTitle.Click += new System.EventHandler(this.BtnEditTitle_Click);
             // 
             // btnAddBook
             // 
@@ -203,11 +207,33 @@
             this.btnDeleteBook.Text = "Delete Book";
             this.btnDeleteBook.UseVisualStyleBackColor = true;
             // 
+            // lbHiddenBookId
+            // 
+            this.lbHiddenBookId.AutoSize = true;
+            this.lbHiddenBookId.Location = new System.Drawing.Point(68, 3);
+            this.lbHiddenBookId.Name = "lbHiddenBookId";
+            this.lbHiddenBookId.Size = new System.Drawing.Size(69, 15);
+            this.lbHiddenBookId.TabIndex = 12;
+            this.lbHiddenBookId.Text = "placeholder";
+            this.lbHiddenBookId.Visible = false;
+            // 
+            // lbHiddenTitleId
+            // 
+            this.lbHiddenTitleId.AutoSize = true;
+            this.lbHiddenTitleId.Location = new System.Drawing.Point(143, 3);
+            this.lbHiddenTitleId.Name = "lbHiddenTitleId";
+            this.lbHiddenTitleId.Size = new System.Drawing.Size(69, 15);
+            this.lbHiddenTitleId.TabIndex = 13;
+            this.lbHiddenTitleId.Text = "placeholder";
+            this.lbHiddenTitleId.Visible = false;
+            // 
             // CtrlBookManager
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.Controls.Add(this.lbHiddenTitleId);
+            this.Controls.Add(this.lbHiddenBookId);
             this.Controls.Add(this.btnDeleteBook);
             this.Controls.Add(this.btnEditBook);
             this.Controls.Add(this.btnDeleteTitle);
@@ -246,5 +272,7 @@
         private Button btnDeleteTitle;
         private Button btnEditBook;
         private Button btnDeleteBook;
+        private Label lbHiddenBookId;
+        private Label lbHiddenTitleId;
     }
 }
