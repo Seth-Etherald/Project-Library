@@ -33,7 +33,7 @@ namespace Project_Library
             titleManager.Show();
             titleManager.FormClosing += BtnRefresh_Click!;
         }
-        
+
         private void BtnDeleteTitle_Click(object sender, EventArgs e)
         {
             int titleId = Convert.ToInt32(lbHiddenTitleId.Text);
