@@ -195,6 +195,7 @@
             this.btnDeleteBook.TabIndex = 11;
             this.btnDeleteBook.Text = "Delete Book";
             this.btnDeleteBook.UseVisualStyleBackColor = true;
+            this.btnDeleteBook.Click += new System.EventHandler(this.BtnDeleteBook_Click);
             // 
             // lbHiddenBookId
             // 
