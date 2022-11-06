@@ -43,6 +43,9 @@ namespace Project_Library
 
         private void BtnAddBook_Click(object sender, EventArgs e)
         {
+            FrmQuantity addQuatity = new(Convert.ToInt32(lbHiddenTitleId.Text));
+            addQuatity.Show();
+            addQuatity.FormClosing += BtnRefresh_Click!;
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e)
@@ -65,12 +68,10 @@ namespace Project_Library
 
                 if (!(string.IsNullOrEmpty(lbHiddenBookId.Text) || lbHiddenBookId.Text!.Equals("No book in stock", StringComparison.OrdinalIgnoreCase)))
                 {
-                    btnEditBook.Enabled = true;
                     btnDeleteBook.Enabled = true;
                 }
                 else
                 {
-                    btnEditBook.Enabled = false;
                     btnDeleteBook.Enabled = false;
                 }
             }
@@ -128,7 +129,6 @@ namespace Project_Library
         public void SetInitialRDAndButton()
         {
             rdTitle.Checked = true;
-            btnEditBook.Enabled = false;
             btnEditTitle.Enabled = false;
             btnDeleteBook.Enabled = false;
             btnDeleteTitle.Enabled = false;
