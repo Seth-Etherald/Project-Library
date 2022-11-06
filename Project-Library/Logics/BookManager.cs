@@ -16,6 +16,12 @@ namespace Project_Library.Logics
             return context.Books.Where(x => x.TitleId == titleId).ToList();
         }
 
+        public static Book? GetBook(int bookId)
+        {
+            using var context = new LibraryManagementContext();
+            return context.Books.FirstOrDefault(x => x.BookId == bookId);
+        }
+
         public static void AddBooks(int amount, int titleId)
         {
             using var context = new LibraryManagementContext();
@@ -32,6 +38,23 @@ namespace Project_Library.Logics
                 }
                 temp.InStock += amount;
                 context.BookInfos.Update(temp);
+            }
+            context.SaveChanges();
+        }
+
+        public static void DeleteBook(int bookId, int titleId)
+        {
+            using var context = new LibraryManagementContext();
+            BookInfo? tempInfo = BookInfoManager.GetBookInfo(titleId);
+            Book? bookToDelete = GetBook(bookId);
+            if (tempInfo != null)
+            {
+                if (bookToDelete != null)
+                {
+                    context.Books.Remove(bookToDelete);
+                    tempInfo.InStock -= 1;
+                    context.BookInfos.Update(tempInfo);
+                }
             }
             context.SaveChanges();
         }

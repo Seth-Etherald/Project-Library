@@ -48,6 +48,25 @@ namespace Project_Library
             addQuatity.FormClosing += BtnRefresh_Click!;
         }
 
+        private void BtnDeleteBook_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Do you really want to delete this book?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                int titleId = Convert.ToInt32(lbHiddenTitleId.Text);
+                int bookId = Convert.ToInt32(lbHiddenBookId.Text);
+
+                BookManager.DeleteBook(bookId, titleId);
+                MessageBox.Show("Book deleted successfully!");
+                SetInitialRDAndButton();
+                LoadDGVData();
+            }
+            else
+            {
+                return;
+            }
+        }
+
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
             tbSearch.Text = "";
