@@ -40,7 +40,6 @@
             this.btnEditTitle = new System.Windows.Forms.Button();
             this.btnAddBook = new System.Windows.Forms.Button();
             this.btnDeleteTitle = new System.Windows.Forms.Button();
-            this.btnEditBook = new System.Windows.Forms.Button();
             this.btnDeleteBook = new System.Windows.Forms.Button();
             this.lbHiddenBookId = new System.Windows.Forms.Label();
             this.lbHiddenTitleId = new System.Windows.Forms.Label();
@@ -186,22 +185,11 @@
             this.btnDeleteTitle.UseVisualStyleBackColor = true;
             this.btnDeleteTitle.Click += new System.EventHandler(this.BtnDeleteTitle_Click);
             // 
-            // btnEditBook
-            // 
-            this.btnEditBook.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditBook.Location = new System.Drawing.Point(3, 400);
-            this.btnEditBook.Name = "btnEditBook";
-            this.btnEditBook.Size = new System.Drawing.Size(205, 33);
-            this.btnEditBook.TabIndex = 10;
-            this.btnEditBook.Text = "Edit Book";
-            this.btnEditBook.UseVisualStyleBackColor = true;
-            // 
             // btnDeleteBook
             // 
             this.btnDeleteBook.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeleteBook.Location = new System.Drawing.Point(3, 439);
+            this.btnDeleteBook.Location = new System.Drawing.Point(3, 400);
             this.btnDeleteBook.Name = "btnDeleteBook";
             this.btnDeleteBook.Size = new System.Drawing.Size(205, 33);
             this.btnDeleteBook.TabIndex = 11;
@@ -236,7 +224,6 @@
             this.Controls.Add(this.lbHiddenTitleId);
             this.Controls.Add(this.lbHiddenBookId);
             this.Controls.Add(this.btnDeleteBook);
-            this.Controls.Add(this.btnEditBook);
             this.Controls.Add(this.btnDeleteTitle);
             this.Controls.Add(this.btnAddBook);
             this.Controls.Add(this.btnEditTitle);
@@ -271,7 +258,6 @@
         private Button btnEditTitle;
         private Button btnAddBook;
         private Button btnDeleteTitle;
-        private Button btnEditBook;
         private Button btnDeleteBook;
         private Label lbHiddenBookId;
         private Label lbHiddenTitleId;
