@@ -43,6 +43,9 @@ namespace Project_Library
 
         private void BtnAddBook_Click(object sender, EventArgs e)
         {
+            FrmQuantity addQuatity = new(Convert.ToInt32(lbHiddenTitleId.Text));
+            addQuatity.Show();
+            addQuatity.FormClosing += BtnRefresh_Click!;
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e)
