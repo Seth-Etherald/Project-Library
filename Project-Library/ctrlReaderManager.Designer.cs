@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.gbReaderInfo = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lbAddress = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.lbCardCreate = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -45,8 +47,10 @@
             this.rbReaderName = new System.Windows.Forms.RadioButton();
             this.rbReaderCard = new System.Windows.Forms.RadioButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lbAddress = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.gbReaderInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReader)).BeginInit();
             this.gbSearchInfo.SuspendLayout();
@@ -72,6 +76,23 @@
             this.gbReaderInfo.TabIndex = 0;
             this.gbReaderInfo.TabStop = false;
             this.gbReaderInfo.Text = "Reader Information";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(119, 138);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(347, 130);
+            this.textBox2.TabIndex = 11;
+            // 
+            // lbAddress
+            // 
+            this.lbAddress.AutoSize = true;
+            this.lbAddress.Location = new System.Drawing.Point(6, 144);
+            this.lbAddress.Name = "lbAddress";
+            this.lbAddress.Size = new System.Drawing.Size(49, 15);
+            this.lbAddress.TabIndex = 10;
+            this.lbAddress.Text = "Address";
             // 
             // dateTimePicker2
             // 
@@ -219,22 +240,41 @@
             this.textBox1.Size = new System.Drawing.Size(379, 23);
             this.textBox1.TabIndex = 0;
             // 
-            // lbAddress
+            // btnRefresh
             // 
-            this.lbAddress.AutoSize = true;
-            this.lbAddress.Location = new System.Drawing.Point(6, 144);
-            this.lbAddress.Name = "lbAddress";
-            this.lbAddress.Size = new System.Drawing.Size(49, 15);
-            this.lbAddress.TabIndex = 10;
-            this.lbAddress.Text = "Address";
+            this.btnRefresh.Location = new System.Drawing.Point(23, 296);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // btnAdd
             // 
-            this.textBox2.Location = new System.Drawing.Point(119, 138);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(347, 130);
-            this.textBox2.TabIndex = 11;
+            this.btnAdd.Location = new System.Drawing.Point(138, 296);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 4;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(259, 296);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.TabIndex = 5;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(383, 296);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 6;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // ctrlReaderManager
             // 
@@ -242,6 +282,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.gbSearchInfo);
             this.Controls.Add(this.dgvReader);
             this.Controls.Add(this.gbReaderInfo);
@@ -277,5 +321,9 @@
         private Label lbReaderCard;
         private TextBox textBox2;
         private Label lbAddress;
+        private Button btnRefresh;
+        private Button btnAdd;
+        private Button btnEdit;
+        private Button btnDelete;
     }
 }
