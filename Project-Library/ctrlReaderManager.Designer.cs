@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.gbReaderInfo = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbAddress = new System.Windows.Forms.TextBox();
             this.lbAddress = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpCardCreateDate = new System.Windows.Forms.DateTimePicker();
             this.lbCardCreate = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.lbDateOfBirth = new System.Windows.Forms.Label();
             this.lbFullName = new System.Windows.Forms.Label();
             this.tbFullName = new System.Windows.Forms.TextBox();
             this.tbReaderCard = new System.Windows.Forms.TextBox();
             this.lbReaderCard = new System.Windows.Forms.Label();
             this.lbOccupation = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbOccupation = new System.Windows.Forms.ComboBox();
             this.dgvReader = new System.Windows.Forms.DataGridView();
             this.gbSearchInfo = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.rbReaderName = new System.Windows.Forms.RadioButton();
             this.rbReaderCard = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbSearch = new System.Windows.Forms.TextBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -58,18 +58,18 @@
             // 
             // gbReaderInfo
             // 
-            this.gbReaderInfo.Controls.Add(this.textBox2);
+            this.gbReaderInfo.Controls.Add(this.tbAddress);
             this.gbReaderInfo.Controls.Add(this.lbAddress);
-            this.gbReaderInfo.Controls.Add(this.dateTimePicker2);
+            this.gbReaderInfo.Controls.Add(this.dtpCardCreateDate);
             this.gbReaderInfo.Controls.Add(this.lbCardCreate);
-            this.gbReaderInfo.Controls.Add(this.dateTimePicker1);
+            this.gbReaderInfo.Controls.Add(this.dtpDateOfBirth);
             this.gbReaderInfo.Controls.Add(this.lbDateOfBirth);
             this.gbReaderInfo.Controls.Add(this.lbFullName);
             this.gbReaderInfo.Controls.Add(this.tbFullName);
             this.gbReaderInfo.Controls.Add(this.tbReaderCard);
             this.gbReaderInfo.Controls.Add(this.lbReaderCard);
             this.gbReaderInfo.Controls.Add(this.lbOccupation);
-            this.gbReaderInfo.Controls.Add(this.comboBox1);
+            this.gbReaderInfo.Controls.Add(this.cbOccupation);
             this.gbReaderInfo.Location = new System.Drawing.Point(3, 3);
             this.gbReaderInfo.Name = "gbReaderInfo";
             this.gbReaderInfo.Size = new System.Drawing.Size(472, 275);
@@ -77,13 +77,13 @@
             this.gbReaderInfo.TabStop = false;
             this.gbReaderInfo.Text = "Reader Information";
             // 
-            // textBox2
+            // tbAddress
             // 
-            this.textBox2.Location = new System.Drawing.Point(119, 138);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(347, 130);
-            this.textBox2.TabIndex = 11;
+            this.tbAddress.Location = new System.Drawing.Point(119, 138);
+            this.tbAddress.Multiline = true;
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(347, 130);
+            this.tbAddress.TabIndex = 11;
             // 
             // lbAddress
             // 
@@ -94,12 +94,12 @@
             this.lbAddress.TabIndex = 10;
             this.lbAddress.Text = "Address";
             // 
-            // dateTimePicker2
+            // dtpCardCreateDate
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(119, 109);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(347, 23);
-            this.dateTimePicker2.TabIndex = 9;
+            this.dtpCardCreateDate.Location = new System.Drawing.Point(119, 109);
+            this.dtpCardCreateDate.Name = "dtpCardCreateDate";
+            this.dtpCardCreateDate.Size = new System.Drawing.Size(347, 23);
+            this.dtpCardCreateDate.TabIndex = 9;
             // 
             // lbCardCreate
             // 
@@ -110,12 +110,12 @@
             this.lbCardCreate.TabIndex = 8;
             this.lbCardCreate.Text = "Card Creation Date";
             // 
-            // dateTimePicker1
+            // dtpDateOfBirth
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(119, 80);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(347, 23);
-            this.dateTimePicker1.TabIndex = 7;
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(119, 80);
+            this.dtpDateOfBirth.Name = "dtpDateOfBirth";
+            this.dtpDateOfBirth.Size = new System.Drawing.Size(347, 23);
+            this.dtpDateOfBirth.TabIndex = 7;
             // 
             // lbDateOfBirth
             // 
@@ -168,25 +168,28 @@
             this.lbOccupation.TabIndex = 1;
             this.lbOccupation.Text = "Occupation";
             // 
-            // comboBox1
+            // cbOccupation
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(119, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(156, 23);
-            this.comboBox1.TabIndex = 0;
+            this.cbOccupation.FormattingEnabled = true;
+            this.cbOccupation.Location = new System.Drawing.Point(119, 22);
+            this.cbOccupation.Name = "cbOccupation";
+            this.cbOccupation.Size = new System.Drawing.Size(156, 23);
+            this.cbOccupation.TabIndex = 0;
             // 
             // dgvReader
             // 
             this.dgvReader.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvReader.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvReader.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReader.Location = new System.Drawing.Point(481, 3);
             this.dgvReader.Name = "dgvReader";
+            this.dgvReader.ReadOnly = true;
             this.dgvReader.RowTemplate.Height = 25;
             this.dgvReader.Size = new System.Drawing.Size(687, 618);
             this.dgvReader.TabIndex = 1;
+            this.dgvReader.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvReader_CellClick);
             // 
             // gbSearchInfo
             // 
@@ -194,7 +197,7 @@
             this.gbSearchInfo.Controls.Add(this.btnSearch);
             this.gbSearchInfo.Controls.Add(this.rbReaderName);
             this.gbSearchInfo.Controls.Add(this.rbReaderCard);
-            this.gbSearchInfo.Controls.Add(this.textBox1);
+            this.gbSearchInfo.Controls.Add(this.tbSearch);
             this.gbSearchInfo.Location = new System.Drawing.Point(3, 541);
             this.gbSearchInfo.Name = "gbSearchInfo";
             this.gbSearchInfo.Size = new System.Drawing.Size(472, 80);
@@ -210,6 +213,7 @@
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // rbReaderName
             // 
@@ -233,12 +237,12 @@
             this.rbReaderCard.Text = "Reader Card";
             this.rbReaderCard.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tbSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(379, 23);
-            this.textBox1.TabIndex = 0;
+            this.tbSearch.Location = new System.Drawing.Point(6, 47);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(379, 23);
+            this.tbSearch.TabIndex = 0;
             // 
             // btnRefresh
             // 
@@ -308,18 +312,18 @@
         private Button btnSearch;
         private RadioButton rbReaderName;
         private RadioButton rbReaderCard;
-        private TextBox textBox1;
+        private TextBox tbSearch;
         private Label lbOccupation;
-        private ComboBox comboBox1;
-        private DateTimePicker dateTimePicker2;
+        private ComboBox cbOccupation;
+        private DateTimePicker dtpCardCreateDate;
         private Label lbCardCreate;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpDateOfBirth;
         private Label lbDateOfBirth;
         private Label lbFullName;
         private TextBox tbFullName;
         private TextBox tbReaderCard;
         private Label lbReaderCard;
-        private TextBox textBox2;
+        private TextBox tbAddress;
         private Label lbAddress;
         private Button btnRefresh;
         private Button btnAdd;
