@@ -10,6 +10,7 @@ namespace Project_Library
         private List<Reader> _readers = new();
         private Reader? _currentReader;
 
+
         public ctrlReaderManager()
         {
             InitializeComponent();

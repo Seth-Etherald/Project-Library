@@ -3,6 +3,7 @@
 namespace Project_Library.Logics
 {
     internal static class ReaderManager
+
     {
         public static List<Reader> GetReaders()
         {
