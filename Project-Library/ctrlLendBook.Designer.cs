@@ -45,10 +45,8 @@
             this.bgLendBook = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.cbBookCondition = new System.Windows.Forms.ComboBox();
             this.dtpExpReturnDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpLendDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.tbReaderId = new System.Windows.Forms.TextBox();
             this.tbLibrarianId = new System.Windows.Forms.TextBox();
@@ -215,10 +213,8 @@
             this.bgLendBook.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.bgLendBook.Controls.Add(this.label6);
             this.bgLendBook.Controls.Add(this.label5);
-            this.bgLendBook.Controls.Add(this.label4);
             this.bgLendBook.Controls.Add(this.cbBookCondition);
             this.bgLendBook.Controls.Add(this.dtpExpReturnDate);
-            this.bgLendBook.Controls.Add(this.dtpLendDate);
             this.bgLendBook.Controls.Add(this.label3);
             this.bgLendBook.Controls.Add(this.tbReaderId);
             this.bgLendBook.Controls.Add(this.tbLibrarianId);
@@ -227,7 +223,7 @@
             this.bgLendBook.Controls.Add(this.label1);
             this.bgLendBook.Location = new System.Drawing.Point(728, 3);
             this.bgLendBook.Name = "bgLendBook";
-            this.bgLendBook.Size = new System.Drawing.Size(422, 206);
+            this.bgLendBook.Size = new System.Drawing.Size(422, 161);
             this.bgLendBook.TabIndex = 8;
             this.bgLendBook.TabStop = false;
             this.bgLendBook.Text = "Lend Ticket Info";
@@ -235,7 +231,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 164);
+            this.label6.Location = new System.Drawing.Point(6, 135);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(90, 15);
             this.label6.TabIndex = 11;
@@ -244,27 +240,18 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 138);
+            this.label5.Location = new System.Drawing.Point(6, 109);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 15);
             this.label5.TabIndex = 10;
             this.label5.Text = "Expected Return Date";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 109);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 15);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Lend Date";
             // 
             // cbBookCondition
             // 
             this.cbBookCondition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbBookCondition.FormattingEnabled = true;
-            this.cbBookCondition.Location = new System.Drawing.Point(132, 161);
+            this.cbBookCondition.Location = new System.Drawing.Point(132, 132);
             this.cbBookCondition.Name = "cbBookCondition";
             this.cbBookCondition.Size = new System.Drawing.Size(290, 23);
             this.cbBookCondition.TabIndex = 8;
@@ -273,19 +260,10 @@
             // 
             this.dtpExpReturnDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpExpReturnDate.Location = new System.Drawing.Point(132, 132);
+            this.dtpExpReturnDate.Location = new System.Drawing.Point(132, 103);
             this.dtpExpReturnDate.Name = "dtpExpReturnDate";
             this.dtpExpReturnDate.Size = new System.Drawing.Size(284, 23);
             this.dtpExpReturnDate.TabIndex = 7;
-            // 
-            // dtpLendDate
-            // 
-            this.dtpLendDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpLendDate.Location = new System.Drawing.Point(132, 103);
-            this.dtpLendDate.Name = "dtpLendDate";
-            this.dtpLendDate.Size = new System.Drawing.Size(284, 23);
-            this.dtpLendDate.TabIndex = 6;
             // 
             // label3
             // 
@@ -344,7 +322,7 @@
             // 
             // btnCreateLendTicket
             // 
-            this.btnCreateLendTicket.Location = new System.Drawing.Point(768, 215);
+            this.btnCreateLendTicket.Location = new System.Drawing.Point(768, 170);
             this.btnCreateLendTicket.Name = "btnCreateLendTicket";
             this.btnCreateLendTicket.Size = new System.Drawing.Size(86, 23);
             this.btnCreateLendTicket.TabIndex = 9;
@@ -353,7 +331,7 @@
             // 
             // btnRefreshTicket
             // 
-            this.btnRefreshTicket.Location = new System.Drawing.Point(928, 215);
+            this.btnRefreshTicket.Location = new System.Drawing.Point(944, 170);
             this.btnRefreshTicket.Name = "btnRefreshTicket";
             this.btnRefreshTicket.Size = new System.Drawing.Size(75, 23);
             this.btnRefreshTicket.TabIndex = 10;
@@ -408,10 +386,8 @@
         private GroupBox bgLendBook;
         private Label label6;
         private Label label5;
-        private Label label4;
         private ComboBox cbBookCondition;
         private DateTimePicker dtpExpReturnDate;
-        private DateTimePicker dtpLendDate;
         private Label label3;
         private TextBox tbReaderId;
         private TextBox tbLibrarianId;

@@ -48,7 +48,7 @@ namespace Project_Library
 
         private void BtnLend_Click(object sender, EventArgs e)
         {
-            ctrlLendBook lendManager = new();
+            ctrlLendBook lendManager = new(CurrentAccount.LibrarianId);
             if (!pnMain.Controls.Contains(lendManager))
             {
                 pnMain.Controls.Clear();
