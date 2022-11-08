@@ -127,7 +127,7 @@ namespace Project_Library
                             {
                                 1 => "Good",
                                 2 => "Damaged",
-                                3 => "Lost",
+                                3 => "Lent",
                                 _ => "No Data"
                             }
                             select new BookManageModel()

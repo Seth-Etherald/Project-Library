@@ -81,17 +81,10 @@ namespace Project_Library
             if (e.RowIndex >= 0)
             {
                 tbBookId.Text = _books[e.RowIndex].BookId;
-                cbBookCondition.SelectedValue = _books[e.RowIndex].Condition switch
-                {
-                    "Good" => 1,
-                    "Damaged" => 2,
-                    _ => 0
-                };
             }
             else
             {
                 tbBookId.Text = "";
-                cbBookCondition.SelectedIndex = 0;
             }
         }
 
@@ -115,6 +108,36 @@ namespace Project_Library
                         break;
                 }
                 dgvBookInfo.DataSource = _books;
+            }
+        }
+
+        private void BtnCreateLendTicket_Click(object sender, EventArgs e)
+        {
+            string bookId = tbBookId.Text.Trim();
+            string readerId = tbReaderId.Text.Trim();
+
+            if (string.IsNullOrEmpty(bookId) || string.IsNullOrEmpty(readerId))
+            {
+                MessageBox.Show("Please select a reader and a book from the list!");
+                return;
+            }
+            else
+            {
+                Book? bookToLend = BookManager.GetBook(Convert.ToInt32(bookId));
+                if (bookToLend != null)
+                {
+                    LendBookManager.AddLendBook(new()
+                    {
+                        CardNumber = Convert.ToInt32(readerId),
+                        LibrarianId = _librarianId,
+                        LendDate = DateTime.Now,
+                        ExpectedReturnDate = dtpExpReturnDate.Value,
+                        ReturnCondition = bookToLend.Condition
+                    }, bookToLend);
+
+                    MessageBox.Show("Create ticket successfully!");
+                    RefreshElements();
+                }
             }
         }
 
@@ -164,7 +187,6 @@ namespace Project_Library
                           NumberOfPages = bookInfo.NumberOfPages,
                           Condition = condition,
                       }).ToList();
-
             dgvBookInfo.DataSource = _books;
         }
 
@@ -176,24 +198,28 @@ namespace Project_Library
 
         public void InitializeFields()
         {
-            var bookCondition = new[]
-            {
-                new {Text = "Good", Value = 1},
-                new {Text = "Damaged", Value = 2}
-            };
             dtpExpReturnDate.MinDate = DateTime.Now;
             rdReaderCard.Checked = true;
             rdBookId.Checked = true;
 
             tbBookId.Text = "";
-            tbLibrarianId.Text = _librarianId.ToString();
             tbReaderId.Text = "";
             dtpExpReturnDate.Value = DateTime.Now;
+        }
 
-            cbBookCondition.DataSource = bookCondition;
-            cbBookCondition.DisplayMember = "Text";
-            cbBookCondition.ValueMember = "Value";
-            cbBookCondition.SelectedIndex = 0;
+        public void RefreshElements()
+        {
+            rdReaderCard.Checked = true;
+            tbReaderSearch.Text = "";
+            LoadReaderDGVData();
+
+            rdBookId.Checked = true;
+            tbBookInfo.Text = "";
+            LoadBookDGVData();
+
+            tbReaderId.Text = "";
+            tbBookId.Text = "";
+            dtpExpReturnDate.Value = DateTime.Now;
         }
 
         public void RefreshElements()

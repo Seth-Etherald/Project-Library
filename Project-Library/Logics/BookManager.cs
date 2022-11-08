@@ -42,6 +42,13 @@ namespace Project_Library.Logics
             context.SaveChanges();
         }
 
+        public static void UpdateBook(Book data)
+        {
+            using var context = new LibraryManagementContext();
+            context.Books.Update(data);
+            context.SaveChanges();
+        }
+
         public static void DeleteBook(int bookId, int titleId)
         {
             using var context = new LibraryManagementContext();
