@@ -221,21 +221,5 @@ namespace Project_Library
             tbBookId.Text = "";
             dtpExpReturnDate.Value = DateTime.Now;
         }
-
-        public void RefreshElements()
-        {
-            rdReaderCard.Checked = true;
-            tbReaderSearch.Text = "";
-            LoadReaderDGVData();
-
-            rdBookId.Checked = true;
-            tbBookInfo.Text = "";
-            LoadBookDGVData();
-
-            tbReaderId.Text = "";
-            tbBookId.Text = "";
-            dtpExpReturnDate.Value = DateTime.Now;
-            cbBookCondition.SelectedIndex = 0;
-        }
     }
 }
