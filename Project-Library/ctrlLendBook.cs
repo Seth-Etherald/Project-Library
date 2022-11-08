@@ -187,7 +187,6 @@ namespace Project_Library
                           NumberOfPages = bookInfo.NumberOfPages,
                           Condition = condition,
                       }).ToList();
-
             dgvBookInfo.DataSource = _books;
         }
 
@@ -221,6 +220,22 @@ namespace Project_Library
             tbReaderId.Text = "";
             tbBookId.Text = "";
             dtpExpReturnDate.Value = DateTime.Now;
+        }
+
+        public void RefreshElements()
+        {
+            rdReaderCard.Checked = true;
+            tbReaderSearch.Text = "";
+            LoadReaderDGVData();
+
+            rdBookId.Checked = true;
+            tbBookInfo.Text = "";
+            LoadBookDGVData();
+
+            tbReaderId.Text = "";
+            tbBookId.Text = "";
+            dtpExpReturnDate.Value = DateTime.Now;
+            cbBookCondition.SelectedIndex = 0;
         }
     }
 }
