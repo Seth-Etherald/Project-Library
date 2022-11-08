@@ -69,9 +69,11 @@
             this.dgvReaderInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReaderInfo.Location = new System.Drawing.Point(3, 86);
             this.dgvReaderInfo.Name = "dgvReaderInfo";
+            this.dgvReaderInfo.ReadOnly = true;
             this.dgvReaderInfo.RowTemplate.Height = 25;
             this.dgvReaderInfo.Size = new System.Drawing.Size(347, 570);
             this.dgvReaderInfo.TabIndex = 0;
+            this.dgvReaderInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvReaderInfo_CellClick);
             // 
             // dgvBookInfo
             // 
@@ -80,9 +82,11 @@
             this.dgvBookInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBookInfo.Location = new System.Drawing.Point(356, 86);
             this.dgvBookInfo.Name = "dgvBookInfo";
+            this.dgvBookInfo.ReadOnly = true;
             this.dgvBookInfo.RowTemplate.Height = 25;
             this.dgvBookInfo.Size = new System.Drawing.Size(366, 570);
             this.dgvBookInfo.TabIndex = 1;
+            this.dgvBookInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBookInfo_CellClick);
             // 
             // gbReaderInfo
             // 
@@ -105,6 +109,7 @@
             this.btnReaderSearch.TabIndex = 3;
             this.btnReaderSearch.Text = "Search";
             this.btnReaderSearch.UseVisualStyleBackColor = true;
+            this.btnReaderSearch.Click += new System.EventHandler(this.BtnReaderSearch_Click);
             // 
             // tbReaderSearch
             // 
@@ -156,6 +161,7 @@
             this.btnBookInfoSearch.TabIndex = 3;
             this.btnBookInfoSearch.Text = "Search";
             this.btnBookInfoSearch.UseVisualStyleBackColor = true;
+            this.btnBookInfoSearch.Click += new System.EventHandler(this.BtnBookInfoSearch_Click);
             // 
             // tbBookInfo
             // 
@@ -337,6 +343,7 @@
             this.btnRefreshTicket.TabIndex = 10;
             this.btnRefreshTicket.Text = "Refresh";
             this.btnRefreshTicket.UseVisualStyleBackColor = true;
+            this.btnRefreshTicket.Click += new System.EventHandler(this.BtnRefreshTicket_Click);
             // 
             // ctrlLendBook
             // 
