@@ -113,6 +113,7 @@
             this.btnReturn.TabIndex = 8;
             this.btnReturn.Text = "Confirm";
             this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.BtnReturn_Click);
             // 
             // label1
             // 

@@ -101,7 +101,7 @@ namespace Project_Library.Models
                     .WithMany(p => p.Books)
                     .UsingEntity<Dictionary<string, object>>(
                         "LendBook",
-                        l => l.HasOne<LendBookDetail>().WithMany().HasForeignKey("LendBookDetailId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_LendBookDetail"),
+                        l => l.HasOne<LendBookDetail>().WithMany().HasForeignKey("LendBookDetailId").OnDelete(DeleteBehavior.ClientCascade).HasConstraintName("FK_LendBookDetail"),
                         r => r.HasOne<Book>().WithMany().HasForeignKey("BookId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_Book"),
                         j =>
                         {

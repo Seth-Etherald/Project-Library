@@ -1,9 +1,12 @@
-﻿using Project_Library.Models;
+﻿using Project_Library.Logics;
+using Project_Library.Models;
 
 namespace Project_Library
 {
     public partial class FrmReturnBook : Form
     {
+        private ReturnBookModel _data = new();
+
         public FrmReturnBook(ReturnBookModel data, int librarianId)
         {
             InitializeComponent();
@@ -26,6 +29,20 @@ namespace Project_Library
             cbReturnCondition.DisplayMember = "Text";
             cbReturnCondition.ValueMember = "Value";
             cbReturnCondition.SelectedIndex = 0;
+
+            _data = data;
+        }
+
+        private void BtnReturn_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Submit this return book request?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                ReturnBookManager.ReturnBook(_data, Convert.ToInt32(tbLibrarianId.Text), (int)cbReturnCondition.SelectedValue);
+                MessageBox.Show("Finished!");
+                Close();
+            }
+            else { return; }
         }
     }
 }

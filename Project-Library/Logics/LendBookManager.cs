@@ -11,6 +11,12 @@ namespace Project_Library.Logics
             return context.LendBookDetails.Include(x => x.Books).ToList();
         }
 
+        public static LendBookDetail? GetLendBookDetail(int ticketId)
+        {
+            using var context = new LibraryManagementContext();
+            return context.LendBookDetails.Include(x => x.Books).FirstOrDefault(x => x.LendBookDetailId == ticketId);
+        }
+
         public static void AddLendBook(LendBookDetail data, Book lendBook)
         {
             using var context = new LibraryManagementContext();
