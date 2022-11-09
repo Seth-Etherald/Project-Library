@@ -7,10 +7,13 @@ namespace Project_Library
     public partial class CtrlReturnBook : UserControl
     {
         private List<ReturnBookModel> _returns = new();
+        private ReturnBookModel? _returnBook;
+        private readonly int _librarianId;
 
-        public CtrlReturnBook()
+        public CtrlReturnBook(int librarianId)
         {
             InitializeComponent();
+            _librarianId = librarianId;
             RefreshElements();
         }
 
@@ -42,6 +45,35 @@ namespace Project_Library
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
             RefreshElements();
+        }
+
+        private void DgvLendDetail_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                btnReturnBook.Enabled = true;
+                _returnBook = _returns[e.RowIndex];
+            }
+            else
+            {
+                _returnBook = null;
+                btnReturnBook.Enabled = false;
+            }
+        }
+
+        private void BtnReturnBook_Click(object sender, EventArgs e)
+        {
+            if (_returnBook != null)
+            {
+                FrmReturnBook returnForm = new(_returnBook, _librarianId);
+                returnForm.Show();
+                returnForm.FormClosed += BtnRefresh_Click!;
+            }
+            else
+            {
+                MessageBox.Show("The return button is disabled, how did you trigger this?");
+                return;
+            }
         }
 
         public void RefreshElements()

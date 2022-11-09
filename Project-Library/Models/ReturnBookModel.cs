@@ -1,6 +1,6 @@
 ﻿namespace Project_Library.Models
 {
-    internal class ReturnBookModel
+    public class ReturnBookModel
     {
         public int BookId { get; set; }
         public int TicketId { get; set; }

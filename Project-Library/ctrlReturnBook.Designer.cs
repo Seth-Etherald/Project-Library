@@ -36,8 +36,6 @@
             this.rbReaderName = new System.Windows.Forms.RadioButton();
             this.btnReturnBook = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.tbReaderIdHidden = new System.Windows.Forms.TextBox();
-            this.tbLendTicketIdHidden = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLendDetail)).BeginInit();
             this.gbLendBookSearch.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +51,7 @@
             this.dgvLendDetail.RowTemplate.Height = 25;
             this.dgvLendDetail.Size = new System.Drawing.Size(1105, 543);
             this.dgvLendDetail.TabIndex = 0;
+            this.dgvLendDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLendDetail_CellClick);
             // 
             // gbLendBookSearch
             // 
@@ -116,6 +115,7 @@
             this.btnReturnBook.TabIndex = 3;
             this.btnReturnBook.Text = "Return Book";
             this.btnReturnBook.UseVisualStyleBackColor = true;
+            this.btnReturnBook.Click += new System.EventHandler(this.BtnReturnBook_Click);
             // 
             // btnRefresh
             // 
@@ -128,28 +128,10 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
-            // tbReaderIdHidden
-            // 
-            this.tbReaderIdHidden.Location = new System.Drawing.Point(14, 21);
-            this.tbReaderIdHidden.Name = "tbReaderIdHidden";
-            this.tbReaderIdHidden.ReadOnly = true;
-            this.tbReaderIdHidden.Size = new System.Drawing.Size(100, 23);
-            this.tbReaderIdHidden.TabIndex = 5;
-            // 
-            // tbLendTicketIdHidden
-            // 
-            this.tbLendTicketIdHidden.Location = new System.Drawing.Point(14, 50);
-            this.tbLendTicketIdHidden.Name = "tbLendTicketIdHidden";
-            this.tbLendTicketIdHidden.ReadOnly = true;
-            this.tbLendTicketIdHidden.Size = new System.Drawing.Size(100, 23);
-            this.tbLendTicketIdHidden.TabIndex = 6;
-            // 
             // CtrlReturnBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tbLendTicketIdHidden);
-            this.Controls.Add(this.tbReaderIdHidden);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnReturnBook);
             this.Controls.Add(this.gbLendBookSearch);
@@ -160,7 +142,6 @@
             this.gbLendBookSearch.ResumeLayout(false);
             this.gbLendBookSearch.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -174,7 +155,5 @@
         private TextBox tbSearch;
         private Button btnReturnBook;
         private Button btnRefresh;
-        private TextBox tbReaderIdHidden;
-        private TextBox tbLendTicketIdHidden;
     }
 }
