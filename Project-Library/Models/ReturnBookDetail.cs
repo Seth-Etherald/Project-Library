@@ -7,7 +7,7 @@ namespace Project_Library.Models
     {
         public int ReturnId { get; set; }
         public int BookId { get; set; }
-        public string ReturnCondition { get; set; } = null!;
+        public int ReturnCondition { get; set; }
 
         public virtual Book Book { get; set; } = null!;
         public virtual ReturnBook Return { get; set; } = null!;
