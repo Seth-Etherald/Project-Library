@@ -64,7 +64,7 @@ namespace Project_Library
 
         private void BtnReturn_Click(object sender, EventArgs e)
         {
-            ctrlReturnBook returnManager = new();
+            CtrlReturnBook returnManager = new();
             if (!pnMain.Controls.Contains(returnManager))
             {
                 pnMain.Controls.Clear();

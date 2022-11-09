@@ -1,6 +1,6 @@
 ﻿namespace Project_Library
 {
-    partial class ctrlReturnBook
+    partial class CtrlReturnBook
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,20 +30,16 @@
         {
             this.dgvLendDetail = new System.Windows.Forms.DataGridView();
             this.gbLendBookSearch = new System.Windows.Forms.GroupBox();
-            this.rbReaderName = new System.Windows.Forms.RadioButton();
-            this.rbLendId = new System.Windows.Forms.RadioButton();
-            this.tbSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.gbReturnBook = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbReaderId = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbLendTicketId = new System.Windows.Forms.TextBox();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.rbLendId = new System.Windows.Forms.RadioButton();
+            this.rbReaderName = new System.Windows.Forms.RadioButton();
             this.btnReturnBook = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.tbReaderIdHidden = new System.Windows.Forms.TextBox();
+            this.tbLendTicketIdHidden = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLendDetail)).BeginInit();
             this.gbLendBookSearch.SuspendLayout();
-            this.gbReturnBook.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvLendDetail
@@ -72,16 +68,21 @@
             this.gbLendBookSearch.TabStop = false;
             this.gbLendBookSearch.Text = "Search Lend Book";
             // 
-            // rbReaderName
+            // btnSearch
             // 
-            this.rbReaderName.AutoSize = true;
-            this.rbReaderName.Location = new System.Drawing.Point(6, 22);
-            this.rbReaderName.Name = "rbReaderName";
-            this.rbReaderName.Size = new System.Drawing.Size(150, 19);
-            this.rbReaderName.TabIndex = 0;
-            this.rbReaderName.TabStop = true;
-            this.rbReaderName.Text = "Search By Reader Name";
-            this.rbReaderName.UseVisualStyleBackColor = true;
+            this.btnSearch.Location = new System.Drawing.Point(240, 47);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Location = new System.Drawing.Point(6, 47);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(224, 23);
+            this.tbSearch.TabIndex = 2;
             // 
             // rbLendId
             // 
@@ -94,70 +95,21 @@
             this.rbLendId.Text = "Search By Lend Ticket ID";
             this.rbLendId.UseVisualStyleBackColor = true;
             // 
-            // tbSearch
+            // rbReaderName
             // 
-            this.tbSearch.Location = new System.Drawing.Point(6, 47);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(224, 23);
-            this.tbSearch.TabIndex = 2;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(240, 47);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // gbReturnBook
-            // 
-            this.gbReturnBook.Controls.Add(this.tbLendTicketId);
-            this.gbReturnBook.Controls.Add(this.label2);
-            this.gbReturnBook.Controls.Add(this.tbReaderId);
-            this.gbReturnBook.Controls.Add(this.label1);
-            this.gbReturnBook.Location = new System.Drawing.Point(3, 3);
-            this.gbReturnBook.Name = "gbReturnBook";
-            this.gbReturnBook.Size = new System.Drawing.Size(205, 79);
-            this.gbReturnBook.TabIndex = 2;
-            this.gbReturnBook.TabStop = false;
-            this.gbReturnBook.Text = "Return Book";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Reader ID";
-            // 
-            // tbReaderId
-            // 
-            this.tbReaderId.Location = new System.Drawing.Point(93, 16);
-            this.tbReaderId.Name = "tbReaderId";
-            this.tbReaderId.Size = new System.Drawing.Size(100, 23);
-            this.tbReaderId.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Lend Ticket ID";
-            // 
-            // tbLendTicketId
-            // 
-            this.tbLendTicketId.Location = new System.Drawing.Point(93, 45);
-            this.tbLendTicketId.Name = "tbLendTicketId";
-            this.tbLendTicketId.Size = new System.Drawing.Size(100, 23);
-            this.tbLendTicketId.TabIndex = 3;
+            this.rbReaderName.AutoSize = true;
+            this.rbReaderName.Location = new System.Drawing.Point(6, 22);
+            this.rbReaderName.Name = "rbReaderName";
+            this.rbReaderName.Size = new System.Drawing.Size(150, 19);
+            this.rbReaderName.TabIndex = 0;
+            this.rbReaderName.TabStop = true;
+            this.rbReaderName.Text = "Search By Reader Name";
+            this.rbReaderName.UseVisualStyleBackColor = true;
             // 
             // btnReturnBook
             // 
-            this.btnReturnBook.Location = new System.Drawing.Point(214, 18);
+            this.btnReturnBook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReturnBook.Location = new System.Drawing.Point(692, 21);
             this.btnReturnBook.Name = "btnReturnBook";
             this.btnReturnBook.Size = new System.Drawing.Size(84, 23);
             this.btnReturnBook.TabIndex = 3;
@@ -166,30 +118,47 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(214, 50);
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.Location = new System.Drawing.Point(692, 50);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(84, 23);
             this.btnRefresh.TabIndex = 4;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             // 
-            // ctrlReturnBook
+            // tbReaderIdHidden
+            // 
+            this.tbReaderIdHidden.Location = new System.Drawing.Point(14, 21);
+            this.tbReaderIdHidden.Name = "tbReaderIdHidden";
+            this.tbReaderIdHidden.ReadOnly = true;
+            this.tbReaderIdHidden.Size = new System.Drawing.Size(100, 23);
+            this.tbReaderIdHidden.TabIndex = 5;
+            // 
+            // tbLendTicketIdHidden
+            // 
+            this.tbLendTicketIdHidden.Location = new System.Drawing.Point(14, 50);
+            this.tbLendTicketIdHidden.Name = "tbLendTicketIdHidden";
+            this.tbLendTicketIdHidden.ReadOnly = true;
+            this.tbLendTicketIdHidden.Size = new System.Drawing.Size(100, 23);
+            this.tbLendTicketIdHidden.TabIndex = 6;
+            // 
+            // CtrlReturnBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tbLendTicketIdHidden);
+            this.Controls.Add(this.tbReaderIdHidden);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnReturnBook);
-            this.Controls.Add(this.gbReturnBook);
             this.Controls.Add(this.gbLendBookSearch);
             this.Controls.Add(this.dgvLendDetail);
-            this.Name = "ctrlReturnBook";
+            this.Name = "CtrlReturnBook";
             this.Size = new System.Drawing.Size(1111, 634);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLendDetail)).EndInit();
             this.gbLendBookSearch.ResumeLayout(false);
             this.gbLendBookSearch.PerformLayout();
-            this.gbReturnBook.ResumeLayout(false);
-            this.gbReturnBook.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -201,12 +170,9 @@
         private RadioButton rbReaderName;
         private Button btnSearch;
         private TextBox tbSearch;
-        private GroupBox gbReturnBook;
-        private TextBox tbLendTicketId;
-        private Label label2;
-        private TextBox tbReaderId;
-        private Label label1;
         private Button btnReturnBook;
         private Button btnRefresh;
+        private TextBox tbReaderIdHidden;
+        private TextBox tbLendTicketIdHidden;
     }
 }
