@@ -76,6 +76,7 @@
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // tbSearch
             // 
@@ -89,10 +90,10 @@
             this.rbLendId.AutoSize = true;
             this.rbLendId.Location = new System.Drawing.Point(162, 22);
             this.rbLendId.Name = "rbLendId";
-            this.rbLendId.Size = new System.Drawing.Size(153, 19);
+            this.rbLendId.Size = new System.Drawing.Size(115, 19);
             this.rbLendId.TabIndex = 1;
             this.rbLendId.TabStop = true;
-            this.rbLendId.Text = "Search By Lend Ticket ID";
+            this.rbLendId.Text = "By Lend Ticket ID";
             this.rbLendId.UseVisualStyleBackColor = true;
             // 
             // rbReaderName
@@ -100,10 +101,10 @@
             this.rbReaderName.AutoSize = true;
             this.rbReaderName.Location = new System.Drawing.Point(6, 22);
             this.rbReaderName.Name = "rbReaderName";
-            this.rbReaderName.Size = new System.Drawing.Size(150, 19);
+            this.rbReaderName.Size = new System.Drawing.Size(112, 19);
             this.rbReaderName.TabIndex = 0;
             this.rbReaderName.TabStop = true;
-            this.rbReaderName.Text = "Search By Reader Name";
+            this.rbReaderName.Text = "By Reader Name";
             this.rbReaderName.UseVisualStyleBackColor = true;
             // 
             // btnReturnBook
@@ -125,6 +126,7 @@
             this.btnRefresh.TabIndex = 4;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
             // tbReaderIdHidden
             // 

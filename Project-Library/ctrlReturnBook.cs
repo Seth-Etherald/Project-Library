@@ -11,6 +11,42 @@ namespace Project_Library
         public CtrlReturnBook()
         {
             InitializeComponent();
+            RefreshElements();
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            LoadDGV();
+            string filterType = gbLendBookSearch.Controls.OfType<RadioButton>().FirstOrDefault(x => x.Checked == true)!.Text;
+            string searchValue = tbSearch.Text;
+            switch (filterType)
+            {
+                case "By Reader Name":
+                    _returns = _returns.Where(x => x.ReaderName!.Contains(searchValue, StringComparison.OrdinalIgnoreCase)).ToList();
+                    break;
+
+                case "By Lend Ticket ID":
+                    if (!int.TryParse(searchValue, out _))
+                    {
+                        MessageBox.Show("Please enter an integer!");
+                        tbSearch.Text = "";
+                        tbSearch.Focus();
+                        return;
+                    }
+                    _returns = _returns.Where(x => x.TicketId == Convert.ToInt32(searchValue)).ToList();
+                    break;
+            }
+            dgvLendDetail.DataSource = _returns;
+        }
+
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshElements();
+        }
+
+        public void RefreshElements()
+        {
+            InitializeFields();
             LoadDGV();
         }
 
@@ -41,6 +77,13 @@ namespace Project_Library
                         }).ToList();
 
             dgvLendDetail.DataSource = _returns;
+        }
+
+        public void InitializeFields()
+        {
+            rbReaderName.Checked = true;
+            tbSearch.Text = "";
+            btnReturnBook.Enabled = false;
         }
     }
 }
