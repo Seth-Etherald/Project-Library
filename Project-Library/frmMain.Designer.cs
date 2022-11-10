@@ -35,6 +35,7 @@
             this.btnLend = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnAccount = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbGreeting
@@ -121,12 +122,24 @@
             this.btnAccount.Visible = false;
             this.btnAccount.Click += new System.EventHandler(this.BtnAccount_Click);
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLogout.Location = new System.Drawing.Point(12, 578);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(145, 55);
+            this.btnLogout.TabIndex = 7;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1281, 645);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnAccount);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnLend);
@@ -152,5 +165,6 @@
         private Button btnLend;
         private Button btnReturn;
         private Button btnAccount;
+        private Button btnLogout;
     }
 }
