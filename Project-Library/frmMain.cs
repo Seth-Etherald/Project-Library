@@ -104,5 +104,15 @@ namespace Project_Library
         {
             Application.Exit();
         }
+
+        private void BtnLogout_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Do you really want to logout?", "Logout", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                FormClosing -= FrmMain_FormClosing!;
+                Application.Restart();
+            }
+        }
     }
 }
