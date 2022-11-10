@@ -30,18 +30,18 @@
         {
             this.dgvLibrarianInfo = new System.Windows.Forms.DataGridView();
             this.gbLibrarianInfo = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbLibrarianId = new System.Windows.Forms.TextBox();
-            this.tbAccountName = new System.Windows.Forms.TextBox();
-            this.tbLibrarianName = new System.Windows.Forms.TextBox();
-            this.tbEmail = new System.Windows.Forms.TextBox();
-            this.tbPassword = new System.Windows.Forms.TextBox();
-            this.cbShowPassword = new System.Windows.Forms.CheckBox();
             this.cbIsAdmin = new System.Windows.Forms.CheckBox();
+            this.cbShowPassword = new System.Windows.Forms.CheckBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.tbLibrarianName = new System.Windows.Forms.TextBox();
+            this.tbAccountName = new System.Windows.Forms.TextBox();
+            this.tbLibrarianId = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -58,9 +58,11 @@
             this.dgvLibrarianInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLibrarianInfo.Location = new System.Drawing.Point(418, 3);
             this.dgvLibrarianInfo.Name = "dgvLibrarianInfo";
+            this.dgvLibrarianInfo.ReadOnly = true;
             this.dgvLibrarianInfo.RowTemplate.Height = 25;
             this.dgvLibrarianInfo.Size = new System.Drawing.Size(659, 618);
             this.dgvLibrarianInfo.TabIndex = 0;
+            this.dgvLibrarianInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLibrarianInfo_CellClick);
             // 
             // gbLibrarianInfo
             // 
@@ -83,87 +85,15 @@
             this.gbLibrarianInfo.TabStop = false;
             this.gbLibrarianInfo.Text = "Librarian Information";
             // 
-            // label1
+            // cbIsAdmin
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "LibrarianID";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Account";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 77);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 15);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Librarian Name";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 106);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 15);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Email";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 135);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 15);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Password";
-            // 
-            // tbLibrarianId
-            // 
-            this.tbLibrarianId.Location = new System.Drawing.Point(100, 16);
-            this.tbLibrarianId.Name = "tbLibrarianId";
-            this.tbLibrarianId.ReadOnly = true;
-            this.tbLibrarianId.Size = new System.Drawing.Size(303, 23);
-            this.tbLibrarianId.TabIndex = 5;
-            // 
-            // tbAccountName
-            // 
-            this.tbAccountName.Location = new System.Drawing.Point(100, 45);
-            this.tbAccountName.Name = "tbAccountName";
-            this.tbAccountName.Size = new System.Drawing.Size(303, 23);
-            this.tbAccountName.TabIndex = 6;
-            // 
-            // tbLibrarianName
-            // 
-            this.tbLibrarianName.Location = new System.Drawing.Point(100, 74);
-            this.tbLibrarianName.Name = "tbLibrarianName";
-            this.tbLibrarianName.Size = new System.Drawing.Size(303, 23);
-            this.tbLibrarianName.TabIndex = 7;
-            // 
-            // tbEmail
-            // 
-            this.tbEmail.Location = new System.Drawing.Point(100, 103);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(303, 23);
-            this.tbEmail.TabIndex = 8;
-            // 
-            // tbPassword
-            // 
-            this.tbPassword.Location = new System.Drawing.Point(100, 132);
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(303, 23);
-            this.tbPassword.TabIndex = 9;
-            this.tbPassword.UseSystemPasswordChar = true;
+            this.cbIsAdmin.AutoSize = true;
+            this.cbIsAdmin.Location = new System.Drawing.Point(100, 186);
+            this.cbIsAdmin.Name = "cbIsAdmin";
+            this.cbIsAdmin.Size = new System.Drawing.Size(73, 19);
+            this.cbIsAdmin.TabIndex = 11;
+            this.cbIsAdmin.Text = "Is Admin";
+            this.cbIsAdmin.UseVisualStyleBackColor = true;
             // 
             // cbShowPassword
             // 
@@ -174,16 +104,90 @@
             this.cbShowPassword.TabIndex = 10;
             this.cbShowPassword.Text = "Show Password";
             this.cbShowPassword.UseVisualStyleBackColor = true;
+            this.cbShowPassword.CheckedChanged += new System.EventHandler(this.CbShowPassword_CheckedChanged);
             // 
-            // cbIsAdmin
+            // tbPassword
             // 
-            this.cbIsAdmin.AutoSize = true;
-            this.cbIsAdmin.Location = new System.Drawing.Point(100, 186);
-            this.cbIsAdmin.Name = "cbIsAdmin";
-            this.cbIsAdmin.Size = new System.Drawing.Size(73, 19);
-            this.cbIsAdmin.TabIndex = 11;
-            this.cbIsAdmin.Text = "Is Admin";
-            this.cbIsAdmin.UseVisualStyleBackColor = true;
+            this.tbPassword.Location = new System.Drawing.Point(100, 132);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(303, 23);
+            this.tbPassword.TabIndex = 9;
+            this.tbPassword.UseSystemPasswordChar = true;
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.Location = new System.Drawing.Point(100, 103);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(303, 23);
+            this.tbEmail.TabIndex = 8;
+            this.tbEmail.UseSystemPasswordChar = true;
+            // 
+            // tbLibrarianName
+            // 
+            this.tbLibrarianName.Location = new System.Drawing.Point(100, 74);
+            this.tbLibrarianName.Name = "tbLibrarianName";
+            this.tbLibrarianName.Size = new System.Drawing.Size(303, 23);
+            this.tbLibrarianName.TabIndex = 7;
+            // 
+            // tbAccountName
+            // 
+            this.tbAccountName.Location = new System.Drawing.Point(100, 45);
+            this.tbAccountName.Name = "tbAccountName";
+            this.tbAccountName.Size = new System.Drawing.Size(303, 23);
+            this.tbAccountName.TabIndex = 6;
+            // 
+            // tbLibrarianId
+            // 
+            this.tbLibrarianId.Location = new System.Drawing.Point(100, 16);
+            this.tbLibrarianId.Name = "tbLibrarianId";
+            this.tbLibrarianId.ReadOnly = true;
+            this.tbLibrarianId.Size = new System.Drawing.Size(303, 23);
+            this.tbLibrarianId.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 135);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 15);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Password";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 106);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 15);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Email";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 77);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 15);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Librarian Name";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Account";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "LibrarianID";
             // 
             // btnRefresh
             // 
@@ -221,7 +225,7 @@
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // ctrlAccountManager
+            // CtrlAccountManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -233,7 +237,7 @@
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.gbLibrarianInfo);
             this.Controls.Add(this.dgvLibrarianInfo);
-            this.Name = "ctrlAccountManager";
+            this.Name = "CtrlAccountManager";
             this.Size = new System.Drawing.Size(1080, 624);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibrarianInfo)).EndInit();
             this.gbLibrarianInfo.ResumeLayout(false);

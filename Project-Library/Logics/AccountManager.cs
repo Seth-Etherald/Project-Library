@@ -18,5 +18,11 @@ namespace Project_Library.Logics
                 x.Username.Equals(account) &&
                 x.Password.Equals(password));
         }
+
+        public static Account? GetAccount(int id)
+        {
+            using var context = new LibraryManagementContext();
+            return context.Accounts.FirstOrDefault(x => x.LibrarianId == id);
+        }
     }
 }
