@@ -80,7 +80,7 @@ namespace Project_Library
 
         private void BtnAccount_Click(object sender, EventArgs e)
         {
-            ctrlAccountManager accountManager = new();
+            CtrlAccountManager accountManager = new(CurrentAccount.LibrarianId);
             if (!pnMain.Controls.Contains(accountManager))
             {
                 pnMain.Controls.Clear();

@@ -1,6 +1,6 @@
 ﻿namespace Project_Library
 {
-    partial class ctrlAccountManager
+    partial class CtrlAccountManager
     {
         /// <summary> 
         /// Required designer variable.
