@@ -54,7 +54,7 @@ namespace Project_Library.Models
                 entity.HasOne(d => d.Librarian)
                     .WithMany(p => p.Accounts)
                     .HasForeignKey(d => d.LibrarianId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("FK_Account_Librarian");
             });
 
